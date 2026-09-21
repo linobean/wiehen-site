@@ -5,11 +5,16 @@ Simple static site for wiehen.com, currently deployed via nginx on a DigitalOcea
 ## Structure
 
 ```
-index.html      Single-page site (hero, about, focus areas, contact)
-css/style.css   All styling — auto light/dark based on system preference
+index.html                 Homepage (hero, about, focus areas, contact)
+css/style.css               Homepage styling — auto light/dark based on system preference
+
+kindle-living/index.html   Brochure site for Kindle Living, served at wiehen.com/kindle-living/
+kindle-living/css/style.css Kindle Living's own styling (separate palette/brand from the homepage)
 ```
 
 No build step, no dependencies. Edit the HTML/CSS directly and redeploy.
+
+`kindle-living/` is currently placeholder copy — replace the bracketed text and section content in `kindle-living/index.html` with the real content when ready. It's linked from the homepage footer.
 
 ## Local preview
 
