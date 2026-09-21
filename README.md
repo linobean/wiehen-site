@@ -5,16 +5,18 @@ Simple static site for wiehen.com, currently deployed via nginx on a DigitalOcea
 ## Structure
 
 ```
-index.html                 Homepage (hero, about, focus areas, contact)
-css/style.css               Homepage styling — auto light/dark based on system preference
+index.html                   Homepage (hero, about, focus areas, contact)
+css/style.css                 Homepage styling — auto light/dark based on system preference
 
-kindle-living/index.html   Brochure site for Kindle Living, served at wiehen.com/kindle-living/
-kindle-living/css/style.css Kindle Living's own styling (separate palette/brand from the homepage)
+kindle-living/index.html     Full Kindle Living brochure site, served at wiehen.com/kindle-living/
+kindle-living/css/style.css   Kindle Living's own brand styling (warm/editorial palette, Fraunces + Inter)
+kindle-living/js/main.js      Mobile menu, product filters, color swatches, quote-request interactions
+kindle-living/images/         Drop real product/lifestyle photos here (see images/README.txt)
 ```
 
-No build step, no dependencies. Edit the HTML/CSS directly and redeploy.
+No build step, no dependencies (Google Fonts is the only external resource, loaded via CSS `@import`).
 
-`kindle-living/` is currently placeholder copy — replace the bracketed text and section content in `kindle-living/index.html` with the real content when ready. It's linked from the homepage footer.
+`kindle-living/` reproduces the structure and copy of the kindleliving.figma.site draft (nav, hero, product grid with filters, featured product, brand story, awards, Heat/Heat & Light/Light sections, testimonial, positioning statement, quote-request flow, footer). All imagery is currently CSS gradient placeholders (`.grad-1` etc, in `css/style.css`) — swap these for real `<img>` tags or `background-image` once you've exported the actual photography from Figma (see `kindle-living/images/README.txt`). Product names in the grid (`kindle-living/js/main.js`, top of file) are placeholders too — edit the `products` array with real names/categories.
 
 ## Local preview
 
