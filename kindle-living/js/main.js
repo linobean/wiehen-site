@@ -90,6 +90,57 @@ quoteOptions.forEach(opt => {
   });
 });
 
+// ---------- Hero image slider ----------
+const sliderTrack = document.getElementById('sliderTrack');
+if (sliderTrack) {
+  const slides = Array.from(sliderTrack.querySelectorAll('.slide'));
+  const dotsWrap = document.getElementById('sliderDots');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+  let current = 0;
+  let timer = null;
+  const INTERVAL = 5000;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.querySelectorAll('.dot'));
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(next, INTERVAL);
+  }
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+  }
+
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); startAutoplay(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); startAutoplay(); });
+
+  const heroSlider = document.querySelector('.hero-slider');
+  if (heroSlider) {
+    heroSlider.addEventListener('mouseenter', stopAutoplay);
+    heroSlider.addEventListener('mouseleave', startAutoplay);
+  }
+
+  startAutoplay();
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
