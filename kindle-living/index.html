@@ -5,19 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kindle Living — Heat and light, for the design obsessed</title>
 <meta name="description" content="Kindle Living designs and hand-builds outdoor heating and lighting in Los Angeles, for people who think compromise is never an option.">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-nav">
   <div class="container bar">
-    <a class="logo" href="#top">Kindle Living</a>
+    <a class="logo" href="#top"><img src="images/LOGO.png" alt="Kindle Living" height="64"></a>
     <nav class="nav-links" id="navLinks">
-      <a class="nav-link" href="#products">Product</a>
-      <a class="nav-link" href="#journal">Journal</a>
+      <a class="nav-link" href="#product-nav">Products</a>
       <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#careers">Careers</a>
-      <a class="btn btn-primary" href="#quote">Get started</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+      <a class="nav-saved" href="saved.html" id="navSaved" aria-label="Saved items">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="nav-saved-count" id="savedCount">0</span>
+      </a>
+      <a class="btn btn-primary" href="#quote">Any questions? Call</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -41,11 +49,14 @@
     <div class="slide" style="background-image:url('images/slides/slide-10.jpg');"></div>
     <div class="slide" style="background-image:url('images/slides/slide-11.jpg');"></div>
     <div class="slide" style="background-image:url('images/slides/slide-12.jpg');"></div>
+    <div class="slide slide-mobile" style="background-image:url('images/slides-portrait/slide-01.jpg');"></div>
+    <div class="slide slide-mobile" style="background-image:url('images/slides-portrait/slide-02.jpg');"></div>
+    <div class="slide slide-mobile" style="background-image:url('images/slides-portrait/slide-03.jpg');"></div>
+    <div class="slide slide-mobile" style="background-image:url('images/slides-portrait/slide-04.jpg');"></div>
+    <div class="slide slide-mobile" style="background-image:url('images/slides-portrait/slide-05.jpg');"></div>
   </div>
-  <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <h1>Heat and light, for the design obsessed.</h1>
-    <p>Hand-built outdoor heating and lighting from Los Angeles — mix-and-match pieces designed for people who think compromise is never an option.</p>
+    <h1><span class="accent-word">Heat</span> &amp; <span class="accent-word">light</span>, for the design obsessed.</h1>
     <a class="btn btn-accent" href="#products">Shop the collection</a>
   </div>
   <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous slide">
@@ -57,39 +68,122 @@
   <div class="slider-dots" id="sliderDots"></div>
 </section>
 
-<section id="products">
+<section class="product-nav" id="product-nav">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Collection</span>
-      <h2>Product</h2>
+    <h2 class="pn-title">Our products</h2>
+
+    <div class="pn-filters" role="tablist" aria-label="Product category" id="pnFilters">
+      <button role="tab" aria-selected="true" class="pn-filter active" data-filter="all">All</button>
+      <button role="tab" aria-selected="false" class="pn-filter" data-filter="heat">Heat</button>
+      <button role="tab" aria-selected="false" class="pn-filter" data-filter="heat-light">Heat &amp; Light</button>
+      <button role="tab" aria-selected="false" class="pn-filter" data-filter="light">Light</button>
     </div>
 
-    <div class="filters" id="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="heat">Heat</button>
-      <button class="filter-btn" data-filter="heat-light">Heat &amp; Light</button>
-      <button class="filter-btn" data-filter="light">Light</button>
+    <div class="pn-row" id="pnRow">
+      <a class="pn-product is-active" data-id="aria" aria-label="Allison" href="product/allison.html">
+        <img class="pn-lamp" src="images/products/allison.png" alt="Allison lamp">
+      </a>
+      <a class="pn-product" data-id="bryn" aria-label="Bella" href="product/bella.html">
+        <img class="pn-lamp" src="images/products/bella.png" alt="Bella lamp">
+      </a>
+      <a class="pn-product" data-id="cove" aria-label="Caroline" href="product/caroline.html">
+        <img class="pn-lamp" src="images/products/caroline.png" alt="Caroline lamp">
+      </a>
+      <a class="pn-product" data-id="dune" aria-label="Sierra" href="product/sierra.html">
+        <img class="pn-lamp" src="images/products/sierra.png" alt="Sierra lamp">
+      </a>
+      <a class="pn-product" data-id="echo" aria-label="Allison White Alabaster" href="product/allison.html?swatch=led-white">
+        <img class="pn-lamp" src="images/products/allison-white-alabaster.png" alt="Allison White Alabaster lamp">
+      </a>
+      <a class="pn-product" data-id="fjord" aria-label="Bella White Alabaster" href="product/bella.html?swatch=led-white">
+        <img class="pn-lamp" src="images/products/bella-white-alabaster.png" alt="Bella White Alabaster lamp">
+      </a>
+      <a class="pn-product" data-id="glow" aria-label="Lumen" href="product/lumen.html">
+        <img class="pn-lamp" src="images/products/lumen.png" alt="Lumen lamp">
+      </a>
+      <a class="pn-product" data-id="halo" aria-label="Blumen" href="product/blumen.html">
+        <img class="pn-lamp" src="images/products/blumen.png" alt="Blumen lamp">
+      </a>
     </div>
 
-    <div class="product-grid" id="productGrid">
-      <!-- populated by js/main.js -->
-    </div>
-
-    <div class="featured">
-      <div class="art grad-1">Allison</div>
-      <div>
-        <span class="badge">LED Multicolor Lights</span>
-        <h3>Allison</h3>
-        <p class="desc">Keep it classic. Allison is the tried and true original — elevated outdoor heat.</p>
-        <div class="swatches">
-          <button class="swatch active" style="background:#1c1a18;" title="Black Onyx" data-color="Black Onyx"></button>
-          <button class="swatch" style="background:#efe9de;" title="White Alabaster" data-color="White Alabaster"></button>
-          <button class="swatch" style="background:#c9a876;" title="Sandstone" data-color="Sandstone"></button>
+    <div class="pn-info">
+      <div class="pn-name-stack" id="pnNameStack">
+        <div class="pn-tag show" data-id="aria">Outdoor heater</div>
+        <div class="pn-tag" data-id="bryn">Outdoor heater</div>
+        <div class="pn-tag" data-id="cove">Outdoor heater</div>
+        <div class="pn-tag" data-id="dune">Outdoor heater</div>
+        <div class="pn-tag" data-id="echo">Heater + lamp</div>
+        <div class="pn-tag" data-id="fjord">Heater + lamp</div>
+        <div class="pn-tag" data-id="glow">Lamp only</div>
+        <div class="pn-tag" data-id="halo">Lamp only</div>
+        <div class="pn-name show" data-id="aria">Allison</div>
+        <div class="pn-name" data-id="bryn">Bella</div>
+        <div class="pn-name" data-id="cove">Caroline</div>
+        <div class="pn-name" data-id="dune">Sierra</div>
+        <div class="pn-name" data-id="echo">Allison White Alabaster</div>
+        <div class="pn-name" data-id="fjord">Bella White Alabaster</div>
+        <div class="pn-name" data-id="glow">Lumen</div>
+        <div class="pn-name" data-id="halo">Blumen</div>
+      </div>
+      <div class="pn-desc-stack" id="pnDescStack">
+        <div class="pn-desc show" data-id="aria">Keep it classic. Allison is the tried and true original - elevated outdoor heat.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#111111;"></span><span class="pn-swatch-name">Black Onyx</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#ffffff;"></span><span class="pn-swatch-name">White Alabaster</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#CBBDB1;"></span><span class="pn-swatch-name">Sandstone</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-icon"><svg viewBox="0 0 24 24"><defs><linearGradient id="bulbGrad-aria" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A623"/><stop offset="50%" stop-color="#F7D94C"/><stop offset="100%" stop-color="#8BC53F"/></linearGradient></defs><g fill="none" stroke="#9a9488" stroke-width="1" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="5" y1="4" x2="6.5" y2="5.5"/><line x1="19" y1="4" x2="17.5" y2="5.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="21.5" y1="10" x2="19.5" y2="10"/></g><path d="M8 10a4 4 0 1 1 8 0c0 2-1.3 3-2 4.2-.4.7-.6 1.3-.6 2.1H10.6c0-.8-.2-1.4-.6-2.1C9.3 13 8 12 8 10z" fill="url(#bulbGrad-aria)" stroke="#9a9488" stroke-width="1"/><rect x="10" y="17" width="4" height="1.3" fill="none" stroke="#9a9488" stroke-width="1"/><rect x="10.3" y="18.6" width="3.4" height="1.3" rx="0.3" fill="none" stroke="#9a9488" stroke-width="1"/></svg></span><span class="pn-swatch-name">LED Multicolor Lights</span></span>
+            <button class="pn-save-btn" data-id="aria" aria-label="Save Allison"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
         </div>
-        <button class="btn btn-outline" id="saveAllison">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-          Save
-        </button>
+        <div class="pn-desc" data-id="bryn">Anything but basic. Bella is heat with an attention grabbing design.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#1a1a1a;"></span><span class="pn-swatch-name">Black Onyx</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#ffffff;"></span><span class="pn-swatch-name">White Alabaster</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#CBBDB1;"></span><span class="pn-swatch-name">Sandstone</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-icon"><svg viewBox="0 0 24 24"><defs><linearGradient id="bulbGrad-bryn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A623"/><stop offset="50%" stop-color="#F7D94C"/><stop offset="100%" stop-color="#8BC53F"/></linearGradient></defs><g fill="none" stroke="#9a9488" stroke-width="1" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="5" y1="4" x2="6.5" y2="5.5"/><line x1="19" y1="4" x2="17.5" y2="5.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="21.5" y1="10" x2="19.5" y2="10"/></g><path d="M8 10a4 4 0 1 1 8 0c0 2-1.3 3-2 4.2-.4.7-.6 1.3-.6 2.1H10.6c0-.8-.2-1.4-.6-2.1C9.3 13 8 12 8 10z" fill="url(#bulbGrad-bryn)" stroke="#9a9488" stroke-width="1"/><rect x="10" y="17" width="4" height="1.3" fill="none" stroke="#9a9488" stroke-width="1"/><rect x="10.3" y="18.6" width="3.4" height="1.3" rx="0.3" fill="none" stroke="#9a9488" stroke-width="1"/></svg></span><span class="pn-swatch-name">LED Multicolor Lights</span></span>
+            <button class="pn-save-btn" data-id="bryn" aria-label="Save Bella"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
+        <div class="pn-desc" data-id="cove">Caroline is a streamlined design providing elegant, fuss-free heat for properties with natural gas hook-ups.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#161616;"></span><span class="pn-swatch-name">Black Onyx</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#ffffff;"></span><span class="pn-swatch-name">True White</span></span>
+            <button class="pn-save-btn" data-id="cove" aria-label="Save Caroline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
+        <div class="pn-desc" data-id="dune">Sierra is heat plus unparalleled execution and hand-tooled craftsmanship. The ultimate outdoor statement piece.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#6a3a22;"></span><span class="pn-swatch-name">African Mahogany</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#C29E7C;"></span><span class="pn-swatch-name">Honey Bamboo</span></span>
+            <button class="pn-save-btn" data-id="dune" aria-label="Save Sierra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
+        <div class="pn-desc" data-id="echo">Have it all. Allison is innovation and sophisticated styling providing the full heat and light experience.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#e8eef7;"></span><span class="pn-swatch-name">White alabaster</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-icon"><svg viewBox="0 0 24 24"><defs><linearGradient id="bulbGrad-echo" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A623"/><stop offset="50%" stop-color="#F7D94C"/><stop offset="100%" stop-color="#8BC53F"/></linearGradient></defs><g fill="none" stroke="#9a9488" stroke-width="1" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="5" y1="4" x2="6.5" y2="5.5"/><line x1="19" y1="4" x2="17.5" y2="5.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="21.5" y1="10" x2="19.5" y2="10"/></g><path d="M8 10a4 4 0 1 1 8 0c0 2-1.3 3-2 4.2-.4.7-.6 1.3-.6 2.1H10.6c0-.8-.2-1.4-.6-2.1C9.3 13 8 12 8 10z" fill="url(#bulbGrad-echo)" stroke="#9a9488" stroke-width="1"/><rect x="10" y="17" width="4" height="1.3" fill="none" stroke="#9a9488" stroke-width="1"/><rect x="10.3" y="18.6" width="3.4" height="1.3" rx="0.3" fill="none" stroke="#9a9488" stroke-width="1"/></svg></span><span class="pn-swatch-name">LED Multicolor Lights</span></span>
+            <button class="pn-save-btn" data-id="echo" aria-label="Save Allison White Alabaster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
+        <div class="pn-desc" data-id="fjord">Two in one. Providing both heat and light, Bella is a whimsical design providing the full heat and light experience.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#e8eef7;"></span><span class="pn-swatch-name">White alabaster</span></span>
+            <span class="pn-swatch-pill"><span class="pn-swatch-icon"><svg viewBox="0 0 24 24"><defs><linearGradient id="bulbGrad-fjord" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F5A623"/><stop offset="50%" stop-color="#F7D94C"/><stop offset="100%" stop-color="#8BC53F"/></linearGradient></defs><g fill="none" stroke="#9a9488" stroke-width="1" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="5" y1="4" x2="6.5" y2="5.5"/><line x1="19" y1="4" x2="17.5" y2="5.5"/><line x1="2.5" y1="10" x2="4.5" y2="10"/><line x1="21.5" y1="10" x2="19.5" y2="10"/></g><path d="M8 10a4 4 0 1 1 8 0c0 2-1.3 3-2 4.2-.4.7-.6 1.3-.6 2.1H10.6c0-.8-.2-1.4-.6-2.1C9.3 13 8 12 8 10z" fill="url(#bulbGrad-fjord)" stroke="#9a9488" stroke-width="1"/><rect x="10" y="17" width="4" height="1.3" fill="none" stroke="#9a9488" stroke-width="1"/><rect x="10.3" y="18.6" width="3.4" height="1.3" rx="0.3" fill="none" stroke="#9a9488" stroke-width="1"/></svg></span><span class="pn-swatch-name">LED Multicolor Lights</span></span>
+            <button class="pn-save-btn" data-id="fjord" aria-label="Save Bella White Alabaster"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
+        <div class="pn-desc" data-id="glow">Light done different. Lumen is a dimmable, white light, plug-in indoor/outdoor floor lamp.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#f5f5f5;"></span><span class="pn-swatch-name">White Alabaster</span></span>
+            <button class="pn-save-btn" data-id="glow" aria-label="Save Lumen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
+        <div class="pn-desc" data-id="halo">Get lit. Blumen is a dimmable, white light, plug-in indoor/outdoor floor lamp.
+          <div class="pn-meta-row">
+            <span class="pn-swatch-pill"><span class="pn-swatch-dot" style="background:#fdfdfd;"></span><span class="pn-swatch-name">White Alabaster</span></span>
+            <button class="pn-save-btn" data-id="halo" aria-label="Save Blumen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="pn-save-label">Save</span></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -107,7 +201,7 @@
           <a class="btn btn-outline" href="#products">Explore the platform</a>
         </div>
       </div>
-      <div class="art grad-3"></div>
+      <img class="art" src="images/about-story.jpg" alt="Guests gathered on a rooftop deck around a Kindle heater lamp at golden hour">
     </div>
   </div>
 </section>
@@ -119,62 +213,74 @@
       <h2>Awards</h2>
     </div>
     <div class="awards-row">
-      <div class="award-chip">Award 1</div>
-      <div class="award-chip">Award 2</div>
-      <div class="award-chip">Award 3</div>
-      <div class="award-chip">Award 4</div>
-      <div class="award-chip">Award 5</div>
-      <div class="award-chip">Award 6</div>
+      <div class="award-chip"><img src="images/awards/spark.png" alt="Spark Design Award"></div>
+      <div class="award-chip"><img src="images/awards/adex-platinum.png" alt="ADEX Platinum Award"></div>
+      <div class="award-chip"><img src="images/awards/good-design.png" alt="Good Design Award"></div>
+      <div class="award-chip"><img src="images/awards/a-design-award.png" alt="A' Design Award & Competition"></div>
+      <div class="award-chip"><img src="images/awards/if-design.png" alt="iF Design Award"></div>
+      <div class="award-chip"><img src="images/awards/design-medal.png" alt="Design award medal"></div>
     </div>
   </div>
 </section>
 
-<section id="heat">
+<section id="heat" class="category-feature">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Heat</span>
-      <h2>Stay outside longer</h2>
-      <p>Warm up to our products, have a longer chat and make a new friend.</p>
-    </div>
-    <div class="category-grid">
-      <div class="art grad-1"></div>
-      <div class="art grad-2"></div>
-      <div class="art grad-3"></div>
-      <div class="art grad-4"></div>
-      <div class="art grad-1"></div>
-      <div class="art grad-2"></div>
+    <div class="cf-grid">
+      <div class="cf-media">
+        <img src="images/category/heat.jpg" alt="Guests gathered around Kindle heaters on a foggy oceanfront deck at night">
+      </div>
+      <div class="cf-content">
+        <span class="eyebrow">Heat</span>
+        <h2>Heat</h2>
+        <p>Warm up to our products, have a longer chat and make a new friend.</p>
+        <div class="cf-thumbs">
+          <img src="images/products/allison.png" alt="Allison">
+          <img src="images/products/bella.png" alt="Bella">
+          <img src="images/products/caroline.png" alt="Caroline">
+          <img src="images/products/sierra.png" alt="Sierra">
+        </div>
+        <span class="cf-pill">Stay outside longer</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="heat-light">
+<section id="heat-light" class="category-feature reverse">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Heat &amp; Light</span>
-      <h2>Warmer and brighter</h2>
-      <p>Warm up to our products, have a longer chat and make a new friend.</p>
-    </div>
-    <div class="category-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-      <div class="art grad-3"></div>
-      <div class="art grad-4"></div>
-    </div>
-    <div class="category-grid" style="margin-top:20px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-      <div class="art grad-5"></div>
-      <div class="art grad-5"></div>
+    <div class="cf-grid">
+      <div class="cf-media">
+        <img src="images/category/heat-light.jpg" alt="Guests mingling on a rooftop lounge at dusk beside a color-changing Kindle lamp">
+      </div>
+      <div class="cf-content">
+        <span class="eyebrow">Heat &amp; Light</span>
+        <h2>Heat &amp; Light</h2>
+        <p>Warm up to our products, have a longer chat and make a new friend.</p>
+        <div class="cf-thumbs">
+          <img src="images/products/allison-white-alabaster.png" alt="Allison, White Alabaster">
+          <img src="images/products/bella-white-alabaster.png" alt="Bella, White Alabaster">
+        </div>
+        <span class="cf-pill">Warmer and brighter</span>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="light">
+<section id="light" class="category-feature">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Light</span>
-      <h2>Illuminate your space</h2>
-      <p>Warm up to our products, have a longer chat and make a new friend.</p>
-    </div>
-    <div class="category-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-      <div class="art grad-2"></div>
-      <div class="art grad-1"></div>
+    <div class="cf-grid">
+      <div class="cf-media">
+        <img src="images/category/light.jpg" alt="Kindle lamps glowing beside a rooftop pool with the city skyline at night">
+      </div>
+      <div class="cf-content">
+        <span class="eyebrow">Light</span>
+        <h2>Light</h2>
+        <p>Warm up to our products, have a longer chat and make a new friend.</p>
+        <div class="cf-thumbs">
+          <img src="images/products/lumen.png" alt="Lumen">
+          <img src="images/products/blumen.png" alt="Blumen">
+        </div>
+        <span class="cf-pill">Illuminate your space</span>
+      </div>
     </div>
   </div>
 </section>
@@ -182,75 +288,272 @@
 <section id="testimonial">
   <div class="container">
     <div class="testimonial">
-      <div class="portrait grad-5"></div>
+      <img class="portrait" src="images/press/home-beautiful-tearsheet.jpg" alt="Home Beautiful magazine feature on the Allison patio heater from Kindle Living">
       <div>
-        <blockquote>"Hot Stuff: Extend your living room all the way to the backyard, with a patio heater cleverly disguised as a lamp. The right heating system will transform your outdoor area into a year-round retreat."</blockquote>
+        <blockquote>"Hot Stuff: Extend your living room all the way to the backyard, with a patio heater cleverly disguised as a lamp."</blockquote>
         <div class="source">— Home Beautiful</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="statement">
+<section class="press-quote">
   <div class="container">
-    <p>Heat and light, hand-built in Los Angeles for people who think compromise is never an option.</p>
+    <blockquote>&ldquo;The right heating system will transform your outdoor area into a year-round retreat.&rdquo;</blockquote>
+    <div class="press-quote-source">&mdash; O Magazine</div>
+    <img class="press-quote-logo" src="images/press/o-magazine-logo.png" alt="The O List, Makeover Edition">
   </div>
 </section>
 
-<section class="quote-section" id="quote">
+<section class="clients-section" id="clients">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Get a quote</span>
-      <h2>Request a personalized quote</h2>
-      <p>What are you after? Six quick questions, we come back with pricing, lead times, and the pieces that actually fit the space. Pick the closest — we'll refine it together.</p>
+    <h2>Our clients</h2>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-track">
+      <img src="images/clients/mandarin.png" alt="Mandarin Oriental">
+      <img src="images/clients/marriott.png" alt="Marriott">
+      <img src="images/clients/hilton.png" alt="Hilton">
+      <img src="images/clients/sheraton.png" alt="Sheraton">
+      <img src="images/clients/intercontinental.png" alt="InterContinental">
+      <img src="images/clients/nobu.png" alt="Nobu">
+      <img src="images/clients/stregis.png" alt="St. Regis">
+      <img src="images/clients/hyatt.png" alt="Hyatt">
+      <img src="images/clients/viceroy.png" alt="Viceroy">
+      <img src="images/clients/loews.png" alt="Loews">
+      <img src="images/clients/luxurycollection.png" alt="The Luxury Collection">
+      <img src="images/clients/starwood.png" alt="Starwood">
+      <img src="images/clients/pebblebeach.png" alt="Pebble Beach Resorts">
+      <img src="images/clients/mgmgrand.png" alt="MGM Grand">
+      <img src="images/clients/disney.png" alt="The Walt Disney Company">
+      <img src="images/clients/belmond.png" alt="Belmond">
+      <img src="images/clients/landrys.png" alt="Landry's">
+      <img src="images/clients/godfrey.png" alt="The Godfrey">
+      <img src="images/clients/irvine.png" alt="Irvine Company">
+      <img src="images/clients/discoveryhome.png" alt="Discovery Home">
+      <img src="images/clients/fourseasons.png" alt="Four Seasons">
+      <img src="images/clients/nobu2.png" alt="Nobu">
+      <img src="images/clients/fairmont.png" alt="Fairmont">
+      <img src="images/clients/whotels.png" alt="W Hotels">
     </div>
-    <div class="quote-options" id="quoteOptions">
-      <button class="quote-option" data-option="Heat">Heat</button>
-      <button class="quote-option" data-option="Heat &amp; Light">Heat &amp; Light</button>
-      <button class="quote-option" data-option="Light">Light</button>
-      <button class="quote-option" data-option="Full outdoor room">Full outdoor room</button>
-      <button class="quote-option" data-option="Not sure yet">Not sure yet</button>
+    <div class="clients-track" aria-hidden="true">
+      <img src="images/clients/mandarin.png" alt="">
+      <img src="images/clients/marriott.png" alt="">
+      <img src="images/clients/hilton.png" alt="">
+      <img src="images/clients/sheraton.png" alt="">
+      <img src="images/clients/intercontinental.png" alt="">
+      <img src="images/clients/nobu.png" alt="">
+      <img src="images/clients/stregis.png" alt="">
+      <img src="images/clients/hyatt.png" alt="">
+      <img src="images/clients/viceroy.png" alt="">
+      <img src="images/clients/loews.png" alt="">
+      <img src="images/clients/luxurycollection.png" alt="">
+      <img src="images/clients/starwood.png" alt="">
+      <img src="images/clients/pebblebeach.png" alt="">
+      <img src="images/clients/mgmgrand.png" alt="">
+      <img src="images/clients/disney.png" alt="">
+      <img src="images/clients/belmond.png" alt="">
+      <img src="images/clients/landrys.png" alt="">
+      <img src="images/clients/godfrey.png" alt="">
+      <img src="images/clients/irvine.png" alt="">
+      <img src="images/clients/discoveryhome.png" alt="">
+      <img src="images/clients/fourseasons.png" alt="">
+      <img src="images/clients/nobu2.png" alt="">
+      <img src="images/clients/fairmont.png" alt="">
+      <img src="images/clients/whotels.png" alt="">
     </div>
-    <div class="quote-status" id="quoteStatus"></div>
   </div>
 </section>
 
-<footer class="site-footer" id="journal">
+<section class="reviews-section" id="reviews">
   <div class="container">
-    <div class="footer-grid">
-      <div>
-        <h4>Kindle Living</h4>
-        <p>2048 Armacost Ave., 1st Floor<br>Los Angeles, CA 90025</p>
-        <p>+1.310.400.3024</p>
-        <p><a href="mailto:info@kindleliving.com">info@kindleliving.com</a></p>
-        <div class="social-row">
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1z"/></svg></a>
-          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></a>
+    <h2>Reviews</h2>
+    <div class="reviews-viewport" id="reviewsViewport">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review-card">
+          <img src="images/reviews/comment_sierra.jpg" alt="">
+          <h3>Love, Love, Love</h3>
+          <p>Cant describe in words the fun we are having in our patio. These are gorgeous!!! and we are getting awesome compliments<br><br>Thank you so much for fulfilling my rush order.<br><br>I am kindled,<br><br>-R</p>
+        </div>
+        <div class="review-card">
+          <img src="images/reviews/comment_bella.jpg" alt="">
+          <h3>Thanks so much!</h3>
+          <p>My clients absolutely love the new Bella Heater Lamps. The white Glove Delivery was outstanding 👌🏻👌🏻👌🏻👌🏻👌🏻👍👍👍👏👏👏👏👏<br><br>Thank you Chaya for making it such a easy, breezy process to order and expedite them.<br><br>You were TERRIFIC 💃👍<br><br>-D</p>
+        </div>
+        <div class="review-card">
+          <img src="images/reviews/comment_allison.jpg" alt="">
+          <h3>Good Afternoon 😃</h3>
+          <p>I'm in love with the Kindle heater and light.<br><br>-A</p>
+        </div>
+        <!-- placeholder duplicates: swap for real reviews when available -->
+        <div class="review-card">
+          <img src="images/reviews/comment_sierra.jpg" alt="">
+          <h3>Love, Love, Love</h3>
+          <p>Cant describe in words the fun we are having in our patio. These are gorgeous!!! and we are getting awesome compliments<br><br>Thank you so much for fulfilling my rush order.<br><br>I am kindled,<br><br>-R</p>
+        </div>
+        <div class="review-card">
+          <img src="images/reviews/comment_bella.jpg" alt="">
+          <h3>Thanks so much!</h3>
+          <p>My clients absolutely love the new Bella Heater Lamps. The white Glove Delivery was outstanding 👌🏻👌🏻👌🏻👌🏻👌🏻👍👍👍👏👏👏👏👏<br><br>Thank you Chaya for making it such a easy, breezy process to order and expedite them.<br><br>You were TERRIFIC 💃👍<br><br>-D</p>
         </div>
       </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#careers">Careers</a></li>
-        </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="kvf-grid">
+      <div class="kvf-left">
+        <a class="kvf-logo" href="#top"><img src="images/LOGO.png" alt="Kindle Living"></a>
+        <p class="kvf-say">Heat and light, hand-built in Los Angeles for people who think compromise is never an option.</p>
+        <p class="kvf-addr">2048 Armacost Ave., 1st Floor<br>Los Angeles, CA 90025</p>
+        <div class="kvf-contact">
+          <a href="tel:+13104003024">+1.310.400.3024</a>
+          <a href="mailto:info@kindleliving.com">info@kindleliving.com</a>
+        </div>
+        <div class="kvf-awards">
+          <h3>Awards</h3>
+          <div class="kvf-badges">
+            <img src="images/awards/spark.png" alt="Spark Design Award">
+            <img src="images/awards/adex-platinum.png" alt="ADEX Platinum Award">
+            <img src="images/awards/good-design.png" alt="Good Design Award">
+            <img src="images/awards/a-design-award.png" alt="A' Design Award & Competition">
+            <img src="images/awards/if-design.png" alt="iF Design Award">
+            <img src="images/awards/design-medal.png" alt="Design award medal">
+          </div>
+        </div>
       </div>
-      <div>
-        <h4>Any questions?</h4>
-        <p>Call <a href="tel:+13104003024">+1.310.400.3024</a></p>
+
+      <div class="kvf-right">
+        <div class="kvf-card">
+          <h2>Request a personalized quote</h2>
+          <p class="kvf-lede">Six quick questions. We come back with pricing, lead times and the pieces that actually fit the space.</p>
+
+          <form id="quoteForm" class="qf">
+            <div class="qf-bar"><i id="qfBarFill" style="width:17%;"></i></div>
+
+            <div class="qf-stage">
+              <div class="qf-step is-on" data-step="1">
+                <p class="qf-q">What are you after?</p>
+                <p class="qf-sub">Pick the closest — we'll refine it together.</p>
+                <div class="qf-opts">
+                  <button class="qf-opt" type="button">Outdoor heat</button>
+                  <button class="qf-opt" type="button">Light</button>
+                  <button class="qf-opt" type="button">Heat and light</button>
+                  <button class="qf-opt" type="button">Not sure yet</button>
+                </div>
+              </div>
+
+              <div class="qf-step" data-step="2">
+                <p class="qf-q">Where will it live?</p>
+                <div class="qf-opts">
+                  <button class="qf-opt" type="button">A home</button>
+                  <button class="qf-opt" type="button">A restaurant or bar</button>
+                  <button class="qf-opt" type="button">A hotel or resort</button>
+                  <button class="qf-opt" type="button">A commercial or multi-unit project</button>
+                  <button class="qf-opt" type="button">Somewhere else</button>
+                </div>
+              </div>
+
+              <div class="qf-step" data-step="3">
+                <p class="qf-q">How many pieces?</p>
+                <div class="qf-opts">
+                  <button class="qf-opt" type="button">Just one</button>
+                  <button class="qf-opt" type="button">Two to four</button>
+                  <button class="qf-opt" type="button">Five to ten</button>
+                  <button class="qf-opt" type="button">More than ten</button>
+                  <button class="qf-opt" type="button">Not sure yet</button>
+                </div>
+              </div>
+
+              <div class="qf-step" data-step="4">
+                <p class="qf-q">When do you need them?</p>
+                <div class="qf-opts">
+                  <button class="qf-opt" type="button">As soon as possible</button>
+                  <button class="qf-opt" type="button">In one to three months</button>
+                  <button class="qf-opt" type="button">In three to six months</button>
+                  <button class="qf-opt" type="button">Just exploring</button>
+                </div>
+              </div>
+
+              <div class="qf-step" data-step="5">
+                <p class="qf-q">Who should we come back to?</p>
+                <p class="qf-sub">Name and email are all we need — the rest just helps us quote accurately.</p>
+                <div class="qf-fields">
+                  <div class="qf-field">
+                    <label for="qfName">Name</label>
+                    <input type="text" id="qfName" name="name" maxlength="256">
+                  </div>
+                  <div class="qf-field">
+                    <label for="qfEmail">Email</label>
+                    <input type="email" id="qfEmail" name="email" maxlength="256">
+                  </div>
+                  <div class="qf-field">
+                    <label for="qfPhone">Phone</label>
+                    <input type="tel" id="qfPhone" name="phone" maxlength="256">
+                  </div>
+                  <div class="qf-field">
+                    <label for="qfZip">Zip code</label>
+                    <input type="text" id="qfZip" name="zip" maxlength="256">
+                  </div>
+                </div>
+              </div>
+
+              <div class="qf-step" data-step="6">
+                <p class="qf-q">Anything else we should know?</p>
+                <div class="qf-fields">
+                  <div class="qf-field is-wide">
+                    <label for="qfHow">How did you hear about us?</label>
+                    <select id="qfHow" name="how">
+                      <option value="">Select one</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Google">Google</option>
+                      <option value="Referral">Referral</option>
+                      <option value="In person">I saw you in person</option>
+                    </select>
+                  </div>
+                  <div class="qf-field is-wide">
+                    <label for="qfCaught">What caught your eye?</label>
+                    <textarea id="qfCaught" name="caught" maxlength="5000"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="qf-done" id="qfDone" hidden>Thank you! We'll be in touch shortly with your personalized quote.</p>
+
+            <div class="qf-nav">
+              <button class="qf-back" type="button" id="qfBack" hidden>&larr; Back</button>
+              <span class="qf-count" id="qfCount">1 / 6</span>
+              <button class="qf-next" type="button" id="qfNext">Next <span aria-hidden="true">&rarr;</span></button>
+              <button class="qf-submit" type="submit" id="qfSubmit" hidden>Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> Kindle Living · All rights reserved</span>
-      <span>Handcrafted in Los Angeles</span>
+
+    <div class="kvf-bar">
+      <small>&copy; <span id="year"></span> Kindle Living. All rights reserved.</small>
+      <ul class="kvf-links">
+        <li><a href="https://www.kindleliving.com/service-troubleshooting" target="_blank" rel="noopener">Service &amp; Support</a></li>
+        <li><a href="https://www.kindleliving.com/faq" target="_blank" rel="noopener">FAQs</a></li>
+        <li><a href="https://www.kindleliving.com/legal-and-financial" target="_blank" rel="noopener">Terms &amp; Conditions</a></li>
+        <li><a href="https://www.kindleliving.com/patents" target="_blank" rel="noopener">Patents</a></li>
+        <li><a href="https://www.kindleliving.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a></li>
+      </ul>
+      <div class="kvf-social">
+        <a href="https://www.instagram.com/kindleliving/" aria-label="Kindle Living on Instagram" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 3.2A6.6 6.6 0 1 0 18.6 12 6.6 6.6 0 0 0 12 5.4Zm0 10.9A4.3 4.3 0 1 1 16.3 12 4.3 4.3 0 0 1 12 16.3Zm6.9-11.1a1.5 1.5 0 1 1-1.5-1.5 1.5 1.5 0 0 1 1.5 1.5Z"/></svg></a>
+        <a href="https://www.facebook.com/KindleLiving/" aria-label="Kindle Living on Facebook" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6A22 22 0 0 0 14.3 3.5c-2.4 0-4 1.45-4 4.1v2.3H7.6V13h2.7v8Z"/></svg></a>
+        <a href="https://www.pinterest.com/kindleliving/" aria-label="Kindle Living on Pinterest" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.65 19.3 9.6 9.6 0 0 1 .04-2.87c.18-.78 1.16-4.94 1.16-4.94a3.6 3.6 0 0 1-.3-1.48c0-1.39.8-2.42 1.8-2.42a1.25 1.25 0 0 1 1.26 1.4c0 .85-.54 2.13-.82 3.31a1.45 1.45 0 0 0 1.47 1.8c1.77 0 3.13-1.87 3.13-4.56a3.93 3.93 0 0 0-4.16-4.05 4.31 4.31 0 0 0-4.5 4.32 3.87 3.87 0 0 0 .74 2.27.3.3 0 0 1 .07.29c-.08.31-.25.98-.28 1.12-.05.19-.15.23-.35.14-1.3-.6-2.11-2.5-2.11-4.02 0-3.27 2.38-6.28 6.86-6.28a6.1 6.1 0 0 1 6.4 6 5.72 5.72 0 0 1-5.6 6.37 2.9 2.9 0 0 1-2.47-1.24s-.55 2.1-.68 2.61a12.3 12.3 0 0 1-1.37 2.88A10 10 0 1 0 12 2Z"/></svg></a>
+        <a href="https://www.houzz.com/professionals/lighting-showrooms-and-sales/kindle-living-pfvwus-pf~92403765" aria-label="Kindle Living on Houzz" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 2v4.6L4 8.2V22h6.3v-5.5h3.4V22H20V10.3Z"/></svg></a>
+      </div>
     </div>
   </div>
 </footer>
 
+<script src="js/products-data.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
