@@ -598,13 +598,6 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.75;
-  transition: filter 200ms ease, opacity 200ms ease;
-}
-.award-chip:hover img {
-  filter: grayscale(0);
-  opacity: 1;
 }
 
 /* ---------- Category blocks (Heat / Heat & Light / Light) ---------- */
