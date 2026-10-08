@@ -12,6 +12,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Clash Display';
+  src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Source Sans 3';
@@ -461,7 +468,7 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 .product-nav .pn-desc.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .product-nav .pn-name {
   font-family: 'Clash Display', -apple-system, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 40px;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -1108,7 +1115,7 @@ footer.site-footer {
 }
 .pd-slide.active { opacity: 1; }
 .product-hero-content .eyebrow { margin-bottom: 12px; }
-.product-hero-content h1 { font-weight: 500; font-size: clamp(36px, 4.5vw, 56px); margin: 0 0 14px; }
+.product-hero-content h1 { font-weight: 600; font-size: clamp(36px, 4.5vw, 56px); margin: 0 0 14px; }
 .product-tagline { font-size: 20px; color: var(--accent); font-weight: 500; margin: 0 0 20px; }
 .product-hero-content > p { color: var(--muted); font-size: 18px; margin: 0 0 8px; max-width: 50ch; }
 .product-cta-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
