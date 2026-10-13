@@ -241,41 +241,118 @@ if (pnRow) {
   kindleUpdateSavedBadge();
 }
 
-// ---------- Reviews: horizontal scroll reveal ----------
-const reviewsSection = document.getElementById('reviews');
-const reviewsViewport = document.getElementById('reviewsViewport');
-const reviewsTrack = document.getElementById('reviewsTrack');
-if (reviewsSection && reviewsViewport && reviewsTrack) {
-  let reviewsTicking = false;
+// ---------- Reviews: looping carousel ----------
+// Slides one card to the left every AUTOPLAY_MS while the section is on screen.
+// Arrows, dots, swipe and the arrow keys move it too; hovering or focusing pauses it.
+const reviewsCarousel = document.getElementById('reviewsCarousel');
+if (reviewsCarousel) {
+  const track = document.getElementById('reviewsTrack');
+  const dotsWrap = document.getElementById('reviewsDots');
+  const slides = Array.from(track.querySelectorAll('[data-review-slide]')).slice(0, 10);
+  const count = slides.length;
+  const CLONES = 3; // enough copies at each end to loop seamlessly with 3 cards visible
+  const AUTOPLAY_MS = 6000;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const updateReviewsScroll = () => {
-    reviewsTicking = false;
-    const maxShift = reviewsTrack.scrollWidth - reviewsViewport.clientWidth;
-    if (maxShift <= 0) {
-      reviewsTrack.style.transform = 'translateX(0)';
-      return;
-    }
-    const rect = reviewsViewport.getBoundingClientRect();
-    // 0 while the card row is still entering (or its top hasn't yet reached
-    // the top of the viewport) — first card fully visible.
-    // 1 after scrolling a further fixed distance past that point — last
-    // card fully visible well before the row scrolls out of view.
-    const REVEAL_DISTANCE = 420;
-    const progress = -rect.top / REVEAL_DISTANCE;
-    const clamped = Math.min(1, Math.max(0, progress));
-    reviewsTrack.style.transform = `translateX(-${clamped * maxShift}px)`;
-  };
+  // Copies of the last cards go before the first and copies of the first cards after the last,
+  // so the row can keep sliding and then jump back invisibly.
+  for (let i = 0; i < CLONES; i++) {
+    const tail = slides[(count - 1 - i + count * CLONES) % count].cloneNode(true);
+    const head = slides[i % count].cloneNode(true);
+    [tail, head].forEach((c) => { c.setAttribute('aria-hidden', 'true'); c.removeAttribute('data-review-slide'); });
+    track.insertBefore(tail, track.firstChild);
+    track.appendChild(head);
+  }
 
-  const onReviewsScroll = () => {
-    if (!reviewsTicking) {
-      reviewsTicking = true;
-      requestAnimationFrame(updateReviewsScroll);
-    }
-  };
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'reviews-dot';
+    dot.setAttribute('aria-label', `Show review ${i + 1}`);
+    dot.addEventListener('click', () => { goTo(i + CLONES); restart(); });
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
 
-  window.addEventListener('scroll', onReviewsScroll, { passive: true });
-  window.addEventListener('resize', updateReviewsScroll);
-  updateReviewsScroll();
+  let index = CLONES; // position in the track including the leading copies
+  let moving = false;
+  let timer = null;
+  let inView = false;
+  let settleTimer = null;
+
+  const slidePercent = () => (window.innerWidth >= 1100 ? 100 / 3 : window.innerWidth >= 768 ? 70 : 100);
+  const visibleCount = () => (window.innerWidth >= 1100 ? 3 : 1);
+
+  function goTo(i, animate = true) {
+    const w = slidePercent();
+    // On tablet the active card is centred; on desktop and phone it starts at the left edge
+    const offset = w === 70 ? (100 - w) / 2 : 0;
+    track.style.transition = animate && !reduceMotion ? 'transform 0.5s ease-in-out' : 'none';
+    moving = animate && !reduceMotion;
+    index = i;
+    track.style.transform = `translateX(${offset - index * w}%)`;
+    // Fallback in case transitionend never fires (e.g. background tab)
+    clearTimeout(settleTimer);
+    if (moving) settleTimer = setTimeout(() => { moving = false; settle(); }, 600);
+    const active = ((index - CLONES) % count + count) % count;
+    dots.forEach((d, n) => d.classList.toggle('active', n === active));
+    if (!moving) settle();
+  }
+
+  // After sliding onto a copy, jump to the real card it copies
+  function settle() {
+    if (index < CLONES) goTo(index + count, false);
+    else if (index >= CLONES + count) goTo(index - count, false);
+  }
+  track.addEventListener('transitionend', (e) => {
+    if (e.target !== track) return;
+    clearTimeout(settleTimer);
+    moving = false;
+    settle();
+  });
+
+  const next = () => { if (!moving) goTo(index + 1); };
+  const prev = () => { if (!moving) goTo(index - 1); };
+
+  function stop() { clearInterval(timer); timer = null; }
+  function start() {
+    stop();
+    if (inView && !reduceMotion && count > visibleCount()) timer = setInterval(next, AUTOPLAY_MS);
+  }
+  function restart() { start(); }
+
+  reviewsCarousel.querySelector('.reviews-arrow-prev').addEventListener('click', () => { prev(); restart(); });
+  reviewsCarousel.querySelector('.reviews-arrow-next').addEventListener('click', () => { next(); restart(); });
+  reviewsCarousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { prev(); restart(); }
+    if (e.key === 'ArrowRight') { next(); restart(); }
+  });
+  reviewsCarousel.addEventListener('mouseenter', stop);
+  reviewsCarousel.addEventListener('mouseleave', start);
+  reviewsCarousel.addEventListener('focusin', stop);
+  reviewsCarousel.addEventListener('focusout', start);
+
+  let touchX = 0;
+  let touchDX = 0;
+  reviewsCarousel.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; touchDX = 0; stop(); }, { passive: true });
+  reviewsCarousel.addEventListener('touchmove', (e) => { touchDX = e.touches[0].clientX - touchX; }, { passive: true });
+  reviewsCarousel.addEventListener('touchend', () => {
+    if (Math.abs(touchDX) > 50) (touchDX < 0 ? next : prev)();
+    start();
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { goTo(index, false); start(); }, 150);
+  });
+
+  new IntersectionObserver((entries) => {
+    inView = entries[0].isIntersecting;
+    inView ? start() : stop();
+  }).observe(reviewsCarousel);
+
+  goTo(index, false);
 }
 
 // ---------- Footer year ----------

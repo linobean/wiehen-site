@@ -44,13 +44,28 @@ git pull
 
 ### First-time setup on the droplet (only needed once)
 
-If `/var/www/wiehen.com` isn't already a git repo:
+If `/var/www/wiehen.com` isn't already a git repo (`git status` there says "not a git repository"):
 
 ```bash
 ssh lino@165.227.172.218
-sudo rm -rf /var/www/wiehen.com/*        # back up first if anything's there you want to keep
-sudo git clone https://github.com/<your-username>/wiehen-site.git /var/www/wiehen.com
+
+# 1. Move the current site aside instead of deleting it (keeps it as a backup)
+sudo mv /var/www/wiehen.com /var/www/wiehen.com.old
+
+# 2. Clone the repo into place and give it to the lino user
+sudo git clone https://github.com/linobean/wiehen-site.git /var/www/wiehen.com
 sudo chown -R lino:lino /var/www/wiehen.com
+
+# 3. Bring back the Mallory web fonts (git-ignored, so the clone doesn't include them)
+mkdir -p /var/www/wiehen.com/fonts
+cp -r /var/www/wiehen.com.old/fonts/mallory /var/www/wiehen.com/fonts/
 ```
 
+Check https://wiehen.com, then delete the backup once you're happy: `sudo rm -rf /var/www/wiehen.com.old`.
+
 After that, every future update is just a `git pull` on the server following a `git push` from wherever you're editing.
+
+### Mallory fonts
+
+`fonts/mallory/` holds licensed Frere-Jones Type web fonts. The licence forbids distributing them, and this repo is public, so the folder is git-ignored. They live only on your Mac and on the server; if the server is ever rebuilt, copy them up again with
+`scp -r fonts/mallory lino@165.227.172.218:/var/www/wiehen.com/fonts/`.
