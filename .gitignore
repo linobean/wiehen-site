@@ -1,2 +1,5 @@
 .DS_Store
 *.log
+# Mallory web fonts (Frere-Jones Type licence): self-hosted only, must not be published in this public repo.
+# Copy fonts/mallory/ to the server directly.
+fonts/mallory/

@@ -5,8 +5,10 @@ Simple static site for wiehen.com, currently deployed via nginx on a DigitalOcea
 ## Structure
 
 ```
-index.html                   Homepage (hero, about, focus areas, contact)
-css/style.css                 Homepage styling — auto light/dark based on system preference
+index.html                   Homepage (floating nav, hero with illustration, about, focus areas, contact)
+css/style.css                 Homepage styling — auto light/dark based on system preference (hero stays light)
+images/hero-reading.png      Homepage hero illustration
+images/logo.png              W logo in the homepage nav
 
 kindle-living/index.html     Full Kindle Living brochure site, served at wiehen.com/kindle-living/
 kindle-living/css/style.css   Kindle Living's own brand styling (warm/editorial palette, Fraunces + Inter)

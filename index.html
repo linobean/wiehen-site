@@ -5,34 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lino Wiehen — UX Director & Designer</title>
 <meta name="description" content="Lino Wiehen — UX Director leading identity verification products. Design, accessibility, and AI-augmented workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<nav>
-  <div class="container">
-    <a class="logo" href="#top">Lino Wiehen</a>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#focus">Focus</a>
-      <a href="#contact">Contact</a>
-    </div>
+<header class="float-nav">
+  <a class="logo" href="#top"><img src="images/logo.png" width="300" height="340" alt="Lino Wiehen — home"></a>
+  <nav class="nav-links" id="nav">
+    <a href="#about">About</a>
+    <a href="#focus">Work</a>
+    <a href="#">Blog</a>
+    <a href="#">Resumé/CV</a>
+  </nav>
+  <div class="nav-right">
+    <a class="nav-cta" href="mailto:lino@wiehen.com">Say hello!</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
   </div>
-</nav>
+</header>
 
 <header class="hero" id="top">
-  <div class="container">
-    <span class="eyebrow">UX Director · Munich</span>
-    <h1>Design leadership for products people have to trust.</h1>
-    <p class="lead">
-      I lead a design team building identity verification products — from NFC document
-      capture to agent-assisted video calls — with a focus on accessibility and
-      how AI is reshaping the design process itself.
-    </p>
-    <div class="cta">
-      <a class="btn btn-primary" href="#contact">Get in touch</a>
-      <a class="btn btn-secondary" href="#about">More about me</a>
-    </div>
+  <img class="hero-image" src="images/hero-reading.png" width="700" height="389"
+       alt="Illustration of Lino reading a book with a glass of wine, sitting in an armchair beside a low bookshelf">
+  <div class="hero-copy">
+    <h1 class="hero-name">I’m Lino Wiehen</h1>
+    <p>An experienced design leader that can help your company grow with a serious AI supported design system, supporting accessibility compliance and improving usability and efficiency.</p>
+    <p>With experience running user testing experiments and A/B testing with international testers and disabled testers to increase conversion by learning how users interact with the product.</p>
   </div>
 </header>
 
@@ -99,6 +99,17 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu: the toggle opens the links full screen; picking a link closes it
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('nav');
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('menu-open', open);
+  };
+  toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
 </script>
 
 </body>
