@@ -247,7 +247,7 @@ header.site-nav.scrolled .logo img {
   right: 0;
   bottom: 0;
   height: 45%;
-  background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0));
+  background: linear-gradient(to top, rgba(0,0,0,0.495), rgba(0,0,0,0));
   z-index: 1;
   pointer-events: none;
 }
