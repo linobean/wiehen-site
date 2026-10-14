@@ -429,3 +429,23 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     anim.play();
   }
 })();
+
+// ---------- Trade Program application form (trade.html) ----------
+// No backend yet: on submit the form is swapped for a thank-you message, like the quote form.
+const tradeForm = document.getElementById('tradeForm');
+if (tradeForm) {
+  tradeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    tradeForm.hidden = true;
+    document.getElementById('tradeDone').hidden = false;
+  });
+}
+
+// ---------- About dropdown in the nav ----------
+// The menu opens on hover and keyboard focus (CSS); clicking "About" goes to the About page.
+// Escape closes it while tabbing through.
+document.querySelectorAll('.nav-dropdown').forEach((dd) => {
+  dd.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && dd.contains(document.activeElement)) document.activeElement.blur();
+  });
+});
