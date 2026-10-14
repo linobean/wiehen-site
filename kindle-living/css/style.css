@@ -376,7 +376,8 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   padding: 6px;
   gap: 2px;
   margin-bottom: 56px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* always one line; buttons tighten up on narrow screens instead */
+  max-width: 100%;
 }
 .product-nav .pn-filter {
   appearance: none;
@@ -390,11 +391,16 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   padding: 12px 24px;
   border-radius: 999px;
   letter-spacing: -0.01em;
+  white-space: nowrap;
   transition: background 240ms ease, color 240ms ease;
 }
 .product-nav .pn-filter:hover { color: var(--accent); }
 .product-nav .pn-filter.active { background: #E1FFA1; color: #262626; font-weight: 600; }
 .product-nav .pn-filter:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+@media (max-width: 520px) {
+  .product-nav .pn-filters { padding: 4px; }
+  .product-nav .pn-filter { padding: 11px clamp(8px, 3.4vw, 18px); font-size: clamp(13px, 3.8vw, 15px); }
+}
 
 .product-nav .pn-row {
   display: grid;
