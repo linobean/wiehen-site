@@ -220,6 +220,7 @@ header.site-nav.scrolled .logo img {
 /* ---------- Hero slider ---------- */
 .hero-slider {
   position: relative;
+  touch-action: pan-y; /* vertical scrolling stays with the page; horizontal swipes change slides */
   height: min(88vh, 720px);
   min-height: 460px;
   overflow: hidden;
@@ -329,7 +330,8 @@ header.site-nav.scrolled .logo img {
   .slider-arrow { display: none; }
 }
 @media (max-width: 640px) {
-  .hero-slider { height: 78vh; }
+  /* Fill the phone screen below the 90px nav bar (svh = the screen with browser bars showing) */
+  .hero-slider { height: calc(100vh - 91px); height: calc(100svh - 91px); }
   .hero-content {
     align-items: flex-start;
     justify-content: flex-end;

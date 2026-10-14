@@ -146,6 +146,21 @@ if (sliderTrack) {
   if (heroSlider) {
     heroSlider.addEventListener('mouseenter', stopAutoplay);
     heroSlider.addEventListener('mouseleave', startAutoplay);
+
+    // Swipe left/right to change slides (ignores mostly-vertical drags so the page still scrolls)
+    let touchX = 0;
+    let touchY = 0;
+    heroSlider.addEventListener('touchstart', (e) => {
+      touchX = e.touches[0].clientX;
+      touchY = e.touches[0].clientY;
+      stopAutoplay();
+    }, { passive: true });
+    heroSlider.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      const dy = e.changedTouches[0].clientY - touchY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)();
+      startAutoplay();
+    });
   }
 
   const handleBreakpointChange = (e) => {
