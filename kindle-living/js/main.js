@@ -373,3 +373,59 @@ if (reviewsCarousel) {
 // ---------- Footer year ----------
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ---------- Scroll reveal: blocks slide up into place as they scroll into view ----------
+// Each group is watched as a whole; when it comes on screen its items rise in one after another.
+(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  const groups = [
+    ['#about .story', '.copy > *, .art'],
+    ['#awards .section-head', ':scope > *'],
+    ['#awards .awards-row', '.award-chip'],
+    ['.category-feature .cf-grid', '.cf-media, .cf-content > *'],
+    ['#testimonial .testimonial', '.portrait, blockquote, .source'],
+    ['.press-quote .container', ':scope > *'],
+  ];
+  const STAGGER = 0.08; // seconds between items in a group
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  groups.forEach(([groupSel, itemSel]) => {
+    document.querySelectorAll(groupSel).forEach((group) => {
+      group.querySelectorAll(itemSel).forEach((el, i) => {
+        el.classList.add('reveal');
+        el.style.setProperty('--reveal-delay', `${Math.min(i * STAGGER, 0.6)}s`);
+      });
+      io.observe(group);
+    });
+  });
+})();
+
+// ---------- Product page: animated heat-ray arrows over the heat-radius photo ----------
+// Needs js/vendor/lottie_light.min.js and the page's ray data (window.KL_HEAT_RAYS).
+// Plays on a loop while on screen; stays off for visitors who prefer reduced motion.
+(() => {
+  const box = document.querySelector('.pd-heat-radius-rays');
+  if (!box || !window.lottie || !window.KL_HEAT_RAYS) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const anim = lottie.loadAnimation({
+    container: box,
+    renderer: 'svg',
+    loop: true,
+    autoplay: false,
+    animationData: window.KL_HEAT_RAYS,
+    // stretch to fill the overlay box (full width, lower two-thirds of the photo) at any size
+    rendererSettings: { preserveAspectRatio: 'none' },
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      entries[0].isIntersecting ? anim.play() : anim.pause();
+    }, { threshold: 0.25 }).observe(box);
+  } else {
+    anim.play();
+  }
+})();
