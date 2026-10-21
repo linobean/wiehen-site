@@ -122,12 +122,12 @@ header.site-nav.scrolled .bar {
 }
 .logo img {
   display: block;
-  height: 64px;
+  height: 74px; /* 64px + 15%; leaves 8px above and below in the 90px bar */
   width: auto;
   transition: height 200ms ease;
 }
 header.site-nav.scrolled .logo img {
-  height: 44px;
+  height: 51px; /* 44px + 15%; leaves ~6px above and below in the 64px bar */
 }
 .nav-links {
   display: flex;
@@ -674,6 +674,8 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 }
 .award-chip {
   aspect-ratio: 3/2;
+  text-decoration: none;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
   border: 1px solid var(--line);
   border-radius: 10px;
   display: flex;
@@ -686,6 +688,8 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   padding: 8px;
   background: var(--panel);
 }
+.award-chip:hover,
+.award-chip:focus-visible { border-color: var(--text); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); outline: none; }
 .award-chip img {
   max-width: 36%;
   max-height: 36%;
@@ -819,12 +823,19 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 }
 .clients-track {
   display: flex;
-  align-items: center;
-  gap: 96px;
   width: max-content;
   flex-shrink: 0;
-  animation: clients-scroll 42s linear infinite;
-  padding: 0 32px;
+  animation: clients-scroll 84s linear infinite;
+  will-change: transform;
+}
+/* Two identical groups; each carries its own trailing gap, so moving the track by exactly
+   -50% lands the second group where the first started and the loop has no jump */
+.clients-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 96px;
+  padding-right: 96px;
 }
 .clients-track img {
   height: 156px;
@@ -838,8 +849,8 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
 }
 .clients-track img:hover { filter: grayscale(0); opacity: 1; }
 @keyframes clients-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .clients-track { animation: none; }
@@ -1743,12 +1754,14 @@ footer.site-footer {
 .awards-page { padding: 56px 0 88px; border-top: none; }
 .award-list { max-width: 960px; border-top: 1px solid var(--line); }
 .award-row {
+  scroll-margin-top: 110px; /* clear the sticky nav when opened from a homepage award link */
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: 40px;
   padding: 40px 0;
   border-bottom: 1px solid var(--line);
 }
+.award-row:target .award-logo { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(181,69,31,0.15); }
 .award-logo {
   display: flex;
   align-items: center;
@@ -1769,9 +1782,6 @@ footer.site-footer {
 }
 .award-body h2 { font-weight: 600; font-size: 28px; letter-spacing: -0.01em; margin: 8px 0 12px; }
 .award-body p { color: var(--muted); font-size: 16px; line-height: 1.65; margin: 0; max-width: 60ch; }
-.award-photo { display: block; margin-top: 24px; border-radius: var(--radius); }
-.award-photo--cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-.award-photo--contain { width: 100%; height: 320px; object-fit: contain; background: #111; padding: 24px; }
 @media (max-width: 640px) {
   .award-row { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
   .award-logo { width: 120px; }

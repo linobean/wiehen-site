@@ -449,3 +449,28 @@ document.querySelectorAll('.nav-dropdown').forEach((dd) => {
     if (e.key === 'Escape' && dd.contains(document.activeElement)) document.activeElement.blur();
   });
 });
+
+// ---------- Logo: always land at the very top of the homepage ----------
+// From other pages the link loads the homepage at the top. On the homepage itself it scrolls
+// back to the top (where the full-size nav and logo show) instead of reloading.
+document.querySelectorAll('a.logo, a.kvf-logo').forEach((logo) => {
+  logo.addEventListener('click', (e) => {
+    const page = (path) => path.replace(/index\.html$/, '');  // "/kindle-living/" and ".../index.html" are the same page
+    const target = new URL(logo.href, location.href);
+    if (page(target.pathname) !== page(location.pathname)) return;
+    e.preventDefault();
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+  });
+});
+
+// ---------- Arriving at a #section link (e.g. awards.html#adex from the homepage badges) ----------
+// The site uses smooth scrolling, which can leave a page short of its target on load,
+// so once everything has loaded, jump straight to the linked section.
+window.addEventListener('load', () => {
+  if (!location.hash) return;
+  let target = null;
+  try { target = document.querySelector(location.hash); } catch (e) { return; }
+  if (target) target.scrollIntoView({ behavior: 'instant', block: 'start' });
+});
