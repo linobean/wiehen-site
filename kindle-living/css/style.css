@@ -307,7 +307,7 @@ header.site-nav.scrolled .logo img {
   right: 0;
   bottom: 0;
   height: 45%;
-  background: linear-gradient(to top, rgba(0,0,0,0.495), rgba(0,0,0,0));
+  background: linear-gradient(to top, rgba(0,0,0,0.545), rgba(0,0,0,0));
   z-index: 1;
   pointer-events: none;
 }
@@ -786,6 +786,26 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   .testimonial .portrait { margin: 0 auto; }
 }
 
+/* Press quote carousel (homepage): one quote at a time, same arrows, dots and slide as Reviews */
+.press-carousel { position: relative; outline: none; }
+.press-viewport { overflow: hidden; }
+.press-track { display: flex; will-change: transform; }
+.press-slide { flex: 0 0 100%; padding: 0 72px; }
+/* every magazine page sits in the same frame, so slides don't change height as they move */
+.press-carousel .testimonial .portrait {
+  width: 320px;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: contain;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+@media (max-width: 767px) {
+  .press-slide { padding: 0; }
+  .press-carousel .testimonial .portrait { width: min(320px, 100%); }
+}
+
 /* ---------- Press pull-quote ---------- */
 .press-quote {
   text-align: center;
@@ -906,7 +926,7 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: var(--panel);
+  background: rgba(255,255,255,0.4); /* white at 60% transparency */
   color: var(--muted);
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);

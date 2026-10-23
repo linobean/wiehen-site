@@ -295,12 +295,72 @@
 
 <section id="testimonial">
   <div class="container">
-    <div class="testimonial">
-      <img class="portrait" src="images/press/home-beautiful-tearsheet.jpg" alt="Home Beautiful magazine feature on the Allison patio heater from Kindle Living">
-      <div>
-        <blockquote>"Hot Stuff: Extend your living room all the way to the backyard, with a patio heater cleverly disguised as a lamp."</blockquote>
-        <div class="source">— Home Beautiful</div>
+    <div class="press-carousel" id="pressCarousel" tabindex="0" aria-roledescription="carousel" aria-label="Press quotes">
+      <div class="press-viewport">
+        <div class="press-track" data-track>
+          <div class="press-slide" data-slide>
+            <div class="testimonial">
+              <img class="portrait" src="images/press/coverage/hollywood-reporter.jpg" alt="The Hollywood Reporter feature on Kindle Living">
+              <div>
+                <blockquote>“How Larry Ellison created the summer’s hottest restaurant scene for Malibu’s beachside billionaires.”</blockquote>
+                <div class="source">— The Hollywood Reporter</div>
+              </div>
+            </div>
+          </div>
+          <div class="press-slide" data-slide>
+            <div class="testimonial">
+              <img class="portrait" src="images/press/coverage/home-beautiful.jpg" alt="Home Beautiful feature on the Allison patio heater">
+              <div>
+                <blockquote>“The right heating system will transform your outdoor area into a year-round retreat.”</blockquote>
+                <div class="source">— Home Beautiful</div>
+              </div>
+            </div>
+          </div>
+          <div class="press-slide" data-slide>
+            <div class="testimonial">
+              <img class="portrait" src="images/press/coverage/new-york-times.jpg" alt="New York Times “Warming Trend” feature on Kindle Living">
+              <div>
+                <blockquote>“True to form, the Kindle Glow, with its translucent shell, offers not just warmth but mood lighting.”</blockquote>
+                <div class="source">— The New York Times</div>
+              </div>
+            </div>
+          </div>
+          <div class="press-slide" data-slide>
+            <div class="testimonial">
+              <img class="portrait" src="images/press/coverage/this-old-house.jpg" alt="This Old House Top 100 feature on the Allison heater">
+              <div>
+                <blockquote>“Our favorite innovations are those that seem so obvious after the fact, like this combo patio heater and lamp.”</blockquote>
+                <div class="source">— This Old House</div>
+              </div>
+            </div>
+          </div>
+          <div class="press-slide" data-slide>
+            <div class="testimonial">
+              <img class="portrait" src="images/press/coverage/la-times.jpg" alt="Los Angeles Times feature photo of a glowing Kindle on a terrace">
+              <div>
+                <blockquote>“Kindle Glow: Let there be light as well as warmth.”</blockquote>
+                <div class="source">— Los Angeles Times</div>
+              </div>
+            </div>
+          </div>
+          <div class="press-slide" data-slide>
+            <div class="testimonial">
+              <img class="portrait" src="images/press/coverage/elle-decoration.jpg" alt="Elle Decoration Germany feature on Kindle Living">
+              <div>
+                <blockquote>“Warm-up… for extra long nights in the outdoors: this heater is also beautiful in the daylight.”</blockquote>
+                <div class="source">— Elle Decoration (Germany)</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <button class="reviews-arrow reviews-arrow-prev" type="button" aria-label="Previous press quote">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l-6 6 6 6"/></svg>
+      </button>
+      <button class="reviews-arrow reviews-arrow-next" type="button" aria-label="Next press quote">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l6 6-6 6"/></svg>
+      </button>
+      <div class="reviews-dots" data-dots></div>
     </div>
   </div>
 </section>
@@ -407,22 +467,22 @@
     <h2>Reviews</h2>
     <div class="reviews-carousel" id="reviewsCarousel" tabindex="0" aria-roledescription="carousel" aria-label="Customer reviews">
       <div class="reviews-viewport">
-        <div class="reviews-track" id="reviewsTrack">
-          <div class="review-slide" data-review-slide>
+        <div class="reviews-track" id="reviewsTrack" data-track>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_sierra.jpg" alt="">
               <h3>Love, Love, Love</h3>
               <p>Cant describe in words the fun we are having in our patio. These are gorgeous!!! and we are getting awesome compliments<br><br>Thank you so much for fulfilling my rush order.<br><br>I am kindled,<br><br>-R</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_bella.jpg" alt="">
               <h3>Thanks so much!</h3>
               <p>My clients absolutely love the new Bella Heater Lamps. The white Glove Delivery was outstanding 👌🏻👌🏻👌🏻👌🏻👌🏻👍👍👍👏👏👏👏👏<br><br>Thank you Chaya for making it such a easy, breezy process to order and expedite them.<br><br>You were TERRIFIC 💃👍<br><br>-D</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_allison.jpg" alt="">
               <h3>Good Afternoon 😃</h3>
@@ -430,49 +490,49 @@
             </div>
           </div>
           <!-- placeholder duplicates (cards 4–10): swap for real reviews when available. Up to 10 cards; dots are generated automatically -->
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_sierra.jpg" alt="">
               <h3>Love, Love, Love</h3>
               <p>Cant describe in words the fun we are having in our patio. These are gorgeous!!! and we are getting awesome compliments<br><br>Thank you so much for fulfilling my rush order.<br><br>I am kindled,<br><br>-R</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_bella.jpg" alt="">
               <h3>Thanks so much!</h3>
               <p>My clients absolutely love the new Bella Heater Lamps. The white Glove Delivery was outstanding 👌🏻👌🏻👌🏻👌🏻👌🏻👍👍👍👏👏👏👏👏<br><br>Thank you Chaya for making it such a easy, breezy process to order and expedite them.<br><br>You were TERRIFIC 💃👍<br><br>-D</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_allison.jpg" alt="">
               <h3>Good Afternoon 😃</h3>
               <p>I'm in love with the Kindle heater and light.<br><br>-A</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_sierra.jpg" alt="">
               <h3>Love, Love, Love</h3>
               <p>Cant describe in words the fun we are having in our patio. These are gorgeous!!! and we are getting awesome compliments<br><br>Thank you so much for fulfilling my rush order.<br><br>I am kindled,<br><br>-R</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_bella.jpg" alt="">
               <h3>Thanks so much!</h3>
               <p>My clients absolutely love the new Bella Heater Lamps. The white Glove Delivery was outstanding 👌🏻👌🏻👌🏻👌🏻👌🏻👍👍👍👏👏👏👏👏<br><br>Thank you Chaya for making it such a easy, breezy process to order and expedite them.<br><br>You were TERRIFIC 💃👍<br><br>-D</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_allison.jpg" alt="">
               <h3>Good Afternoon 😃</h3>
               <p>I'm in love with the Kindle heater and light.<br><br>-A</p>
             </div>
           </div>
-          <div class="review-slide" data-review-slide>
+          <div class="review-slide" data-slide>
             <div class="review-card">
               <img src="images/reviews/comment_sierra.jpg" alt="">
               <h3>Love, Love, Love</h3>
@@ -487,7 +547,7 @@
       <button class="reviews-arrow reviews-arrow-next" type="button" aria-label="Next review">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l6 6-6 6"/></svg>
       </button>
-      <div class="reviews-dots" id="reviewsDots"></div>
+      <div class="reviews-dots" id="reviewsDots" data-dots></div>
     </div>
   </div>
 </section>
