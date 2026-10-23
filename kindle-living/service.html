@@ -194,6 +194,31 @@
               </div>
 
               <div class="qf-step" data-step="5">
+                <p class="qf-q">Anything else we should know?</p>
+                <div class="qf-fields">
+                  <div class="qf-field is-wide">
+                    <label for="qfHow">How did you hear about us?</label>
+                    <select id="qfHow" name="how">
+                      <option value="">Select one</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Google">Google</option>
+                      <option value="Referral">Referral</option>
+                      <option value="In person">I saw you in person</option>
+                    </select>
+                  </div>
+                  <div class="qf-field is-wide">
+                    <label for="qfCaught">What caught your eye?</label>
+                    <textarea id="qfCaught" name="caught" maxlength="5000"></textarea>
+                  </div>
+                </div>
+                <div class="qf-saved" id="qfSaved" hidden>
+                  <p class="qf-saved-title">Saved products</p>
+                  <div class="qf-saved-thumbs" id="qfSavedThumbs"></div>
+                  <input type="hidden" name="saved" id="qfSavedInput">
+                </div>
+              </div>
+
+              <div class="qf-step" data-step="6">
                 <p class="qf-q">Who should we come back to?</p>
                 <p class="qf-sub">Name and email are all we need — the rest just helps us quote accurately.</p>
                 <div class="qf-fields">
@@ -212,26 +237,6 @@
                   <div class="qf-field">
                     <label for="qfZip">Zip code</label>
                     <input type="text" id="qfZip" name="zip" maxlength="256">
-                  </div>
-                </div>
-              </div>
-
-              <div class="qf-step" data-step="6">
-                <p class="qf-q">Anything else we should know?</p>
-                <div class="qf-fields">
-                  <div class="qf-field is-wide">
-                    <label for="qfHow">How did you hear about us?</label>
-                    <select id="qfHow" name="how">
-                      <option value="">Select one</option>
-                      <option value="Instagram">Instagram</option>
-                      <option value="Google">Google</option>
-                      <option value="Referral">Referral</option>
-                      <option value="In person">I saw you in person</option>
-                    </select>
-                  </div>
-                  <div class="qf-field is-wide">
-                    <label for="qfCaught">What caught your eye?</label>
-                    <textarea id="qfCaught" name="caught" maxlength="5000"></textarea>
                   </div>
                 </div>
               </div>

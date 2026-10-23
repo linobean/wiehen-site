@@ -221,8 +221,8 @@ header.site-nav.scrolled .logo img {
   height: 18px;
   padding: 0 4px;
   border-radius: 999px;
-  background: var(--accent-2);
-  color: #fff;
+  background: #E1FFA1; /* same light green as the "Any questions? Call" button */
+  color: #262626;
   font-size: 11px;
   font-weight: 700;
   line-height: 18px;
@@ -1110,6 +1110,32 @@ footer.site-footer {
   margin: 12px 0 0;
 }
 
+/* Saved products under "What caught your eye?" (quote form step 5) */
+.qf-saved { margin-top: 20px; }
+.qf-saved-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(244,241,234,0.5);
+  margin: 0 0 8px;
+}
+/* light tile so black lamps stay visible on the dark card; lamps match the Heat section thumbnails */
+.qf-saved-thumbs {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 16px 20px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.qf-saved-thumbs img {
+  height: 130px;
+  width: auto;
+  object-fit: contain;
+  object-position: 50% 100%;
+  display: block;
+}
 .qf-nav {
   display: flex;
   align-items: center;

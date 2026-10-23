@@ -34,7 +34,31 @@ if (qfForm) {
   const total = steps.length;
   let current = 0;
 
+  // Saved products: shown under "What caught your eye?" when the visitor has saved anything.
+  // Rebuilt each time the step changes, so items saved since the page loaded are included.
+  const savedBox = document.getElementById('qfSaved');
+  const savedThumbs = document.getElementById('qfSavedThumbs');
+  const savedInput = document.getElementById('qfSavedInput');
+  // product images are stored relative to the site root; product pages sit one folder down
+  const assetPrefix = (document.querySelector('.kvf-logo img, .logo img')?.getAttribute('src') || '').replace(/images\/.*$/, '');
+  function renderSavedProducts() {
+    if (!savedBox || typeof kindleGetSavedIds !== 'function') return;
+    const ids = kindleGetSavedIds();
+    savedBox.hidden = ids.length === 0;
+    savedThumbs.innerHTML = '';
+    ids.forEach((id) => {
+      const p = KINDLE_PRODUCTS[id];
+      const img = document.createElement('img');
+      img.src = assetPrefix + p.image;
+      img.alt = p.name;
+      img.title = p.name;
+      savedThumbs.appendChild(img);
+    });
+    savedInput.value = ids.map((id) => KINDLE_PRODUCTS[id].name).join(', ');
+  }
+
   function showStep(i) {
+    renderSavedProducts();
     steps.forEach((step, idx) => step.classList.toggle('is-on', idx === i));
     barFill.style.width = `${((i + 1) / total) * 100}%`;
     countEl.textContent = `${i + 1} / ${total}`;
