@@ -416,15 +416,19 @@ section { padding: 72px 0; border-top: 1px solid var(--line); }
   margin-bottom: 12px;
 }
 .section-head h2 { font-size: clamp(26px, 3.5vw, 36px); margin-bottom: 12px; }
-/* Homepage Awards title: same size and weight as the other homepage section titles */
-#awards .section-head h2 {
+/* Homepage Awards, Our clients and Reviews titles: same size and weight as the other homepage section titles */
+#awards .section-head h2,
+.clients-section h2,
+.reviews-section h2 {
   font-size: 3.111em; /* 56px at 18px body */
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 @media (max-width: 880px) {
-  #awards .section-head h2 { font-size: 2.111em; /* 38px */ }
+  #awards .section-head h2,
+  .clients-section h2,
+  .reviews-section h2 { font-size: 2.111em; /* 38px */ }
 }
 .section-head p { color: var(--muted); font-size: 18px; margin: 0; }
 
