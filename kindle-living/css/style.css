@@ -1185,7 +1185,16 @@ footer.site-footer {
 .saved-hero {
   padding: 56px 0 8px;
 }
-.saved-hero h1 { font-size: clamp(28px, 4vw, 44px); margin: 0 0 8px; }
+.saved-hero h1 {
+  font-size: 3.111em; /* 56px, same as the other page titles */
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+@media (max-width: 880px) {
+  .saved-hero h1 { font-size: 2.111em; /* 38px */ }
+}
 .saved-hero p { color: var(--muted); font-size: 18px; margin: 0; }
 .saved-grid {
   display: grid;
@@ -1212,7 +1221,7 @@ footer.site-footer {
 .saved-card-media img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .saved-card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .saved-card-tag { font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
-.saved-card-name { font-family: 'Clash Display', sans-serif; font-weight: 400; font-size: 24px; margin: 0; }
+.saved-card-name { font-family: 'Clash Display', sans-serif; font-weight: 600; font-size: 1.333em; /* 24px */ margin: 0; }
 .saved-card-desc { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0; flex: 1; }
 .saved-card-actions { display: flex; gap: 10px; margin-top: 8px; }
 .saved-card-actions a,
