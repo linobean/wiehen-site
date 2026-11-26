@@ -271,3 +271,135 @@ footer {
   color: var(--muted);
   font-size: 13px;
 }
+
+/* ===== Projects slider (#work) — always light, like the hero ===== */
+.projects {
+  --p-header-bg: #f2faff;
+  --p-title: #2e3541;
+  --p-text: #1a1c22;
+  --p-arrow: #aabfcc;
+  --p-arrow-hover: #7f99aa;
+  --p-inset: clamp(20px, 9.24vw, 133px);
+  padding: 0;
+  border-top: 0;
+  background: #fff;
+  color: var(--p-text);
+  font-family: "Mallory", "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+}
+.projects__header {
+  background: var(--p-header-bg);
+  min-height: 169px;
+  padding: 31px calc(var(--p-inset) + 180px) 24px var(--p-inset);
+  position: relative;
+}
+.projects .projects__title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--p-title);
+}
+.projects__desc {
+  margin: 12px 0 0;
+  max-width: 30em;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+.projects__nav {
+  position: absolute;
+  top: 56px;
+  right: clamp(12px, 2.5vw, 58px);
+  display: flex;
+  gap: 32px;
+}
+.projects__arrow {
+  width: 64px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--p-arrow);
+  cursor: pointer;
+  transition: color .15s ease, transform .15s ease;
+}
+.projects__arrow:hover { color: var(--p-arrow-hover); }
+.projects__arrow:active { transform: scale(.94); }
+.projects__arrow:focus-visible { outline: 3px solid var(--p-arrow-hover); outline-offset: 2px; }
+.projects__arrow svg { display: block; width: 64px; height: 48px; overflow: visible; }
+.projects__status {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.project { display: none; }
+.project.is-active { display: block; animation: project-in .35s ease-out; }
+@keyframes project-in {
+  from { opacity: 0; transform: translateX(var(--from, 24px)); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .project.is-active { animation: none; } }
+
+.project__media {
+  position: relative;
+  aspect-ratio: 1440 / 890;
+  overflow: hidden;
+  background: linear-gradient(112deg, #d9d9d9 0%, #4b4141 100%);
+}
+.project__media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Lottie over the Security scan phone, clipped to the phone screen */
+.project__screen {
+  position: absolute;
+  left: 36.04%; top: 10%;
+  width: 27.99%; height: 90%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.project__lottie {
+  /* centre of the card cut-out and size — nudge these if the animation needs lining up */
+  --lottie-x: 49.6%;
+  --lottie-y: 54.4%;
+  --lottie-w: 107.4%;
+  position: absolute;
+  left: var(--lottie-x);
+  top: var(--lottie-y);
+  width: var(--lottie-w);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+}
+.project__lottie dotlottie-wc { display: block; width: 100%; height: 100%; }
+
+.project__copy {
+  max-width: 1034px;
+  padding: 133px var(--p-inset) 160px;
+  font-size: clamp(20px, 2.1vw, 30px);
+  font-weight: 300;
+  line-height: 1.333;
+  letter-spacing: .035em;
+}
+.project__copy h3 { margin: 0 0 1.333em; font: inherit; font-weight: 500; }
+.project__copy p { margin: 0 0 1.333em; }
+.project__copy ul,
+.project__copy ol { margin: 0 0 1.333em; padding-left: 1.2em; }
+.project__copy > :last-child { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+  .projects__header { padding-right: 170px; }
+  .projects__nav { top: 28px; gap: 8px; }
+  .project__copy { padding-top: 64px; padding-bottom: 96px; }
+}
