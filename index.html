@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lino Wiehen — UX Director & Designer</title>
-<meta name="description" content="Lino Wiehen — UX Director leading identity verification products. Design, accessibility, and AI-augmented workflows.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&display=swap">
+<meta name="description" content="Lino Wiehen — design leader for identity verification products. AI-supported design systems, accessibility compliance, usability and user testing.">
+<link rel="preload" href="fonts/mallory/Mallory-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/mallory/Mallory-Light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,7 +14,7 @@
 <header class="float-nav">
   <a class="logo" href="#top"><img src="images/logo.png" width="300" height="340" alt="Lino Wiehen — home"></a>
   <nav class="nav-links" id="nav">
-    <a href="#about">About</a>
+    <a href="#top">About</a>
     <a href="#work">Work</a>
     <a href="#">Blog</a>
     <a href="#">Resumé/CV</a>
@@ -26,195 +25,167 @@
   </div>
 </header>
 
-<header class="hero" id="top">
-  <img class="hero-image" src="images/hero-reading.png" width="700" height="389"
-       alt="Illustration of Lino reading a book with a glass of wine, sitting in an armchair beside a low bookshelf">
-  <div class="hero-copy">
-    <h1 class="hero-name">I’m Lino Wiehen</h1>
-    <p>An experienced design leader that can help your company grow with a serious AI supported design system, supporting accessibility compliance and improving usability and efficiency.</p>
-    <p>With experience running user testing experiments and A/B testing with international testers and disabled testers to increase conversion by learning how users interact with the product.</p>
-  </div>
-</header>
-
-<!-- Projects slider — content mirrors the Figma "Project" component; logic in js/projects.js -->
-<section class="projects" id="work" aria-roledescription="carousel" aria-label="Projects">
-  <header class="projects__header">
-    <h2 class="projects__title" data-title>IDnow</h2>
-    <p class="projects__desc" data-desc>IDnow verification app currently being used around the world.</p>
-    <nav class="projects__nav" aria-label="Project navigation">
-      <button class="projects__arrow" type="button" data-prev aria-label="Previous project">
-        <svg viewBox="0 0 64 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"><path d="M5.5 24h53"/><path d="M19 10.5 5.5 24 19 37.5"/></g></svg>
-      </button>
-      <button class="projects__arrow" type="button" data-next aria-label="Next project">
-        <svg viewBox="0 0 64 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"><path d="M5.5 24h53"/><path d="M45 10.5 58.5 24 45 37.5"/></g></svg>
-      </button>
-    </nav>
-    <p class="projects__status" aria-live="polite" data-status></p>
+<main>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1 class="hero-name">I’m Lino Wiehen</h1>
+      <img class="hero-image" src="images/hero-reading.png" width="700" height="389"
+           alt="Illustration of Lino reading a book with a glass of wine, sitting in an armchair beside a low bookshelf">
+      <div class="hero-copy">
+        <p>An experienced design leader that can help your company grow with a serious AI supported design system, supporting accessibility compliance and improving usability and efficiency.</p>
+        <p>With experience running user testing experiments and A/B testing with international testers and disabled testers to increase conversion by learning how users interact with the product.</p>
+      </div>
+    </div>
   </header>
 
-  <article class="project is-active" id="idnow-verification"
-    data-title="IDnow" data-desc="IDnow verification app currently being used around the world.">
-    <div class="project__media"><img src="images/projects/idnow-verification.jpg" width="2880" height="1780" alt="iPhone showing the IDnow verification app start screen"></div>
-    <div class="project__copy">
-      <h3>IDnow ID Verification flow</h3>
-      <p>With a complex verification flow, each step must be clear and easy to understand.</p>
-      <p>The app is mainly used as an SDK so it lives inside a client's app. It is white label so has a list of possible customizations. The client can customize with a web interface.</p>
-      <p>The team tested the contrast ratio on every page. Main issue is clients can customize colors so we need to show a warning when client sets contrast is outside allowed amount.</p>
-      <p>The app starts with</p>
-      <ol>
-        <li>Logo page</li>
-        <li>Terms and conditions</li>
-        <li>Allow camera page</li>
-        <li>Scan front ID</li>
-      </ol>
-      <p>if NFC available in device and ID, then switch to NFC</p>
-      <p>if not scan back ID<br>Security tilt ID to show holograms</p>
-      <p>if user has difficulty, switch to assisted flow with an Agent assisted flow</p>
-    </div>
-  </article>
+  <!-- Projects slider — content mirrors the Figma "Project" component; logic in js/projects.js -->
+  <section class="projects" id="work" aria-roledescription="carousel" aria-label="Projects">
+    <header class="projects__header">
+      <h2 class="projects__title" data-title>IDnow</h2>
+      <p class="projects__desc" data-desc>IDnow verification app currently being used around the world.</p>
+      <nav class="projects__nav" aria-label="Project navigation">
+        <button class="projects__arrow" type="button" data-prev aria-label="Previous project">
+          <svg viewBox="0 0 64 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"><path d="M5.5 24h53"/><path d="M19 10.5 5.5 24 19 37.5"/></g></svg>
+        </button>
+        <button class="projects__arrow" type="button" data-next aria-label="Next project">
+          <svg viewBox="0 0 64 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"><path d="M5.5 24h53"/><path d="M45 10.5 58.5 24 45 37.5"/></g></svg>
+        </button>
+      </nav>
+      <p class="projects__status" aria-live="polite" data-status></p>
+    </header>
 
-  <article class="project" id="idnow-security-scan"
-    data-title="IDnow" data-desc="IDnow Security check flow">
-    <div class="project__media">
-      <img src="images/projects/idnow-security-scan-camera.jpg" width="2880" height="1780" loading="lazy" alt="iPhone showing the IDnow ID Security check screen">
-      <div class="project__screen" aria-hidden="true">
-        <div class="project__lottie">
-          <template data-lottie><dotlottie-wc src="lottie/tilt-id-front.lottie" autoplay loop></dotlottie-wc></template>
+    <article class="project is-active" id="idnow-verification"
+      data-title="IDnow" data-desc="IDnow verification app currently being used around the world.">
+      <div class="project__media project__media--phone">
+        <figure class="phone" aria-label="Slideshow of the IDnow automated ID verification flow">
+          <div class="phone-screen slideshow" data-interval="1800">
+            <img class="is-active" src="images/docidv/01.webp" alt="IDnow splash screen" width="750" height="1624">
+            <img data-src="images/docidv/02.webp" alt="Terms and conditions" width="750" height="1624">
+            <img data-src="images/docidv/03.webp" alt="Camera access request" width="750" height="1624">
+            <img data-src="images/docidv/04.webp" alt="Front of ID: tutorial" width="750" height="1624">
+            <img data-src="images/docidv/05.webp" alt="Front of ID: scanning" width="750" height="1624">
+            <img data-src="images/docidv/06.webp" alt="Front of ID: captured" width="750" height="1624">
+            <img data-src="images/docidv/07.webp" alt="Back of ID: tutorial" width="750" height="1624">
+            <img data-src="images/docidv/08.webp" alt="Back of ID: scanning" width="750" height="1624">
+            <img data-src="images/docidv/09.webp" alt="Back of ID: captured" width="750" height="1624">
+            <img data-src="images/docidv/10.webp" alt="Choose your PIN method" width="750" height="1624">
+            <img data-src="images/docidv/11.webp" alt="Enter your 6-digit PIN" width="750" height="1624">
+            <img data-src="images/docidv/12.webp" alt="NFC: contactless scanning of your document" width="750" height="1624">
+            <img data-src="images/docidv/13.webp" alt="NFC: hold your phone over the document" width="750" height="1624">
+            <img data-src="images/docidv/14.webp" alt="NFC: scanning complete" width="750" height="1624">
+            <img data-src="images/docidv/15.webp" alt="Liveness: video of your face" width="750" height="1624">
+            <img data-src="images/docidv/16.webp" alt="Liveness: center your face" width="750" height="1624">
+            <img data-src="images/docidv/17.webp" alt="Uploading and analysing" width="750" height="1624">
+            <img data-src="images/docidv/18.webp" alt="Verifying results" width="750" height="1624">
+            <img data-src="images/docidv/19.webp" alt="Identification submitted successfully" width="750" height="1624">
+          </div>
+          <span class="phone-island" aria-hidden="true"></span>
+        </figure>
+      </div>
+      <div class="project__copy">
+        <h3>IDnow ID Verification flow</h3>
+        <p>With a complex verification flow, each step must be clear and easy to understand.</p>
+        <p>The app is mainly used as an SDK so it lives inside a client's app. It is white label so has a list of possible customizations. The client can customize with a web interface.</p>
+        <p>The team tested the contrast ratio on every page. Main issue is clients can customize colors so we need to show a warning when client sets contrast is outside allowed amount.</p>
+        <p>The app starts with</p>
+        <ol>
+          <li>Logo page</li>
+          <li>Terms and conditions</li>
+          <li>Allow camera page</li>
+          <li>Scan front ID</li>
+        </ol>
+        <p>if NFC available in device and ID, then switch to NFC</p>
+        <p>if not scan back ID<br>Security tilt ID to show holograms</p>
+        <p>if user has difficulty, switch to assisted flow with an Agent assisted flow</p>
+      </div>
+    </article>
+
+    <article class="project" id="idnow-security-scan"
+      data-title="IDnow" data-desc="IDnow Security check flow">
+      <div class="project__media">
+        <img src="images/projects/idnow-security-scan-camera.jpg" width="2880" height="1780" loading="lazy" alt="iPhone showing the IDnow ID Security check screen">
+        <div class="project__screen" aria-hidden="true">
+          <div class="project__lottie">
+            <template data-lottie><dotlottie-wc src="lottie/tilt-id-front.lottie" autoplay loop></dotlottie-wc></template>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="project__copy">
-      <h3>IDnow Security scan flow</h3>
-      <p>With a complex verification flow, each step must be clear and easy to understand.</p>
-      <p>For the security step, the user has shown the front and back of their ID.</p>
-      <ul>
-        <li>The copy introduces the page and instructs the action</li>
-        <li>The rectangle is cut out of a mask to show where to hold the ID.</li>
-        <li>The animation shows 2 fingers of the left hand holding the ID card. In testing we found that 72% of our users are right handed and would be holding the mobile phone with their right hands and the ID with their left.</li>
-        <li>The fingers are shown as many users put the ID down on a table and move their phone over the ID which does not work very well.</li>
-        <li>The animation repeats a few times then disappears so you can move your ID in the same spot</li>
-      </ul>
-      <p>The user needs to flip the card over, then hold it with 2 fingers of the left hand and tilt it to shine light on the holograms so they flash.</p>
-      <p>The hardest part of this is that the holograms are different on every ID in Europe. The Swiss ID even has a small holes that glint very subtly</p>
-    </div>
-  </article>
-
-  <article class="project" id="idnow-nfc"
-    data-title="IDnow" data-desc="IDnow verification app&#10;NFC flow to use the devices NFC function to read the card">
-    <div class="project__media"><img src="images/projects/idnow-nfc.jpg" width="2880" height="1780" alt="iPhone showing the IDnow German eID card and PIN screen" loading="lazy"></div>
-    <div class="project__copy">
-      <h3>IDnow NFC flow</h3>
-      <p>When a user scans their ID, we can determine if their device is capable of running NFC, if yes, the user is asked to hold their ID up to their device antenna. On iOS this is near the back top of your device, on Android, this can be several places from middle top to middle to bottom. We created a lottie animation showing the correct device with the correct animation of where to place your ID. It shows scanning bars that become green when contact is made.</p>
-      <p>Instruction</p>
-      <ol>
-        <li>Place ID up to device</li>
-        <li>Scan to see if it connects</li>
-        <li>enter PIN (if in Germany)</li>
-      </ol>
-    </div>
-  </article>
-
-  <article class="project" id="sony-animax"
-    data-title="Sony Animax Japan" data-desc="Playstation interface for Anime program">
-    <div class="project__media"><img src="images/projects/sony-animax.jpg" width="2880" height="1780" alt="Animax TV programme grid on PlayStation" loading="lazy"></div>
-    <div class="project__copy">
-      <h3>Sony Animax Playstation</h3>
-      <p>This was the playstation layout of the TV page showing Anime content, when you click you see the episode breakdown.</p>
-      <p>I had to translate all content to Kanji before AI and label each thumbnail properly. We also created and developed the payment flows for content in Japan. This content was for Playstation, Xbox, Bravia, Chrome, set top boxes and more. Each player had to be tested.</p>
-    </div>
-  </article>
-
-  <article class="project" id="yahoo-video-player"
-    data-title="Video player" data-desc="Yahoo Video player for full-screen playback">
-    <div class="project__media"><img src="images/projects/yahoo-video-player.jpg" width="2880" height="1780" alt="Yahoo Screen full-screen video player concept" loading="lazy"></div>
-    <div class="project__copy">
-      <h3>Full-screen video player</h3>
-      <p>The Yahoo large video player for fullscreen playback, featuring controls on hover and small related infos that could be marketing elements or links to other media on the platform like clips or gossip. These would appear if you stopped the video then fade out slowly so you could focus on main video.</p>
-      <p>This was a concept to connect other media from Yahoo to video content at specific playback times. This was just a concept and not built.</p>
-      <p>Yahoo has so much content but connecting it and surfacing it is not always easy.</p>
-    </div>
-  </article>
-
-  <article class="project" id="knife-holder"
-    data-title="Knife holder" data-desc="Personal woodworking project">
-    <div class="project__media"><img src="images/projects/knife-holder.jpg" width="2880" height="1780" alt="Walnut knife block with slotted top" loading="lazy"></div>
-    <div class="project__copy">
-      <h3>Knife holder</h3>
-      <p>This was a knife block I designed and built in a woodworking class taken at the Parsons school of design evening course in Los Angeles. It is walnut and features space for about 18 knives of different sizes. The design allows the end blade to be seen, good if you have a damast steel blade.</p>
-      <p>I was intrigued by slot models and slot wooden dinosaur kits and wanted a simple shape to hold many knives. The cross view into the block has a nice play of all the knife curves.</p>
-      <p>The knife block was sold on Etsy and got good reviews.</p>
-    </div>
-  </article>
-
-  <article class="project" id="qode-app"
-    data-title="QODE APP" data-desc="Designed small app for Belkin hardware">
-    <div class="project__media"><img src="images/projects/qode-app.jpg" width="2880" height="1780" alt="QODE app on an iPad in a Belkin keyboard case" loading="lazy"></div>
-    <div class="project__copy">
-      <h3>QODE APP</h3>
-      <p>This was an app for the Qode Belkin keyboard. The app allowed for some customization and was mainly there to connect the users to Belkin for updates and marketing purposes.</p>
-    </div>
-  </article>
-</section>
-
-<section id="about">
-  <div class="container">
-    <h2>About</h2>
-    <div class="body">
-      <p>
-        I'm the UX Director at IDnow, based in Munich, where I've led design since
-        December 2019. My team works across identity verification flows —
-        NFC-based checks, live agent video calls, and fully automated
-        verification — balancing usability, regulatory accessibility
-        requirements (EAA/WCAG), and product quality at scale.
-      </p>
-      <p>
-        I hold a BFA in Industrial Design from RISD, and alongside my role at
-        IDnow I take on freelance design work. I'm fluent in English and German.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="focus">
-  <div class="container">
-    <h2>Focus areas</h2>
-    <div class="grid">
-      <div class="item">
-        <h3>Identity verification UX</h3>
-        <p>Designing trustworthy, low-friction flows for document and biometric checks.</p>
+      <div class="project__copy">
+        <h3>IDnow Security scan flow</h3>
+        <p>With a complex verification flow, each step must be clear and easy to understand.</p>
+        <p>For the security step, the user has shown the front and back of their ID.</p>
+        <ul>
+          <li>The copy introduces the page and instructs the action</li>
+          <li>The rectangle is cut out of a mask to show where to hold the ID.</li>
+          <li>The animation shows 2 fingers of the left hand holding the ID card. In testing we found that 72% of our users are right handed and would be holding the mobile phone with their right hands and the ID with their left.</li>
+          <li>The fingers are shown as many users put the ID down on a table and move their phone over the ID which does not work very well.</li>
+          <li>The animation repeats a few times then disappears so you can move your ID in the same spot</li>
+        </ul>
+        <p>The user needs to flip the card over, then hold it with 2 fingers of the left hand and tilt it to shine light on the holograms so they flash.</p>
+        <p>The hardest part of this is that the holograms are different on every ID in Europe. The Swiss ID even has a small holes that glint very subtly</p>
       </div>
-      <div class="item">
-        <h3>Accessibility</h3>
-        <p>EAA and WCAG-compliant design across web and mobile verification products.</p>
-      </div>
-      <div class="item">
-        <h3>AI-augmented workflows</h3>
-        <p>Exploring how AI tools change design practice, from prototyping to research.</p>
-      </div>
-      <div class="item">
-        <h3>Design leadership</h3>
-        <p>Building and guiding a small, focused product design team.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </article>
 
-<section id="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <div class="body">
-      <p>Open to hearing about freelance projects and design conversations.</p>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:lino@wiehen.com">lino@wiehen.com</a>
-    </div>
-  </div>
-</section>
+    <article class="project" id="idnow-nfc"
+      data-title="IDnow" data-desc="IDnow verification app&#10;NFC flow to use the devices NFC function to read the card">
+      <div class="project__media"><img src="images/projects/idnow-nfc.jpg" width="2880" height="1780" alt="iPhone showing the IDnow German eID card and PIN screen" loading="lazy"></div>
+      <div class="project__copy">
+        <h3>IDnow NFC flow</h3>
+        <p>When a user scans their ID, we can determine if their device is capable of running NFC, if yes, the user is asked to hold their ID up to their device antenna. On iOS this is near the back top of your device, on Android, this can be several places from middle top to middle to bottom. We created a lottie animation showing the correct device with the correct animation of where to place your ID. It shows scanning bars that become green when contact is made.</p>
+        <p>Instruction</p>
+        <ol>
+          <li>Place ID up to device</li>
+          <li>Scan to see if it connects</li>
+          <li>enter PIN (if in Germany)</li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="project" id="sony-animax"
+      data-title="Sony Animax Japan" data-desc="Playstation interface for Anime program">
+      <div class="project__media"><img src="images/projects/sony-animax.jpg" width="2880" height="1780" alt="Animax TV programme grid on PlayStation" loading="lazy"></div>
+      <div class="project__copy">
+        <h3>Sony Animax Playstation</h3>
+        <p>This was the playstation layout of the TV page showing Anime content, when you click you see the episode breakdown.</p>
+        <p>I had to translate all content to Kanji before AI and label each thumbnail properly. We also created and developed the payment flows for content in Japan. This content was for Playstation, Xbox, Bravia, Chrome, set top boxes and more. Each player had to be tested.</p>
+      </div>
+    </article>
+
+    <article class="project" id="yahoo-video-player"
+      data-title="Video player" data-desc="Yahoo Video player for full-screen playback">
+      <div class="project__media"><img src="images/projects/yahoo-video-player.jpg" width="2880" height="1780" alt="Yahoo Screen full-screen video player concept" loading="lazy"></div>
+      <div class="project__copy">
+        <h3>Full-screen video player</h3>
+        <p>The Yahoo large video player for fullscreen playback, featuring controls on hover and small related infos that could be marketing elements or links to other media on the platform like clips or gossip. These would appear if you stopped the video then fade out slowly so you could focus on main video.</p>
+        <p>This was a concept to connect other media from Yahoo to video content at specific playback times. This was just a concept and not built.</p>
+        <p>Yahoo has so much content but connecting it and surfacing it is not always easy.</p>
+      </div>
+    </article>
+
+    <article class="project" id="knife-holder"
+      data-title="Knife holder" data-desc="Personal woodworking project">
+      <div class="project__media"><img src="images/projects/knife-holder.jpg" width="2880" height="1780" alt="Walnut knife block with slotted top" loading="lazy"></div>
+      <div class="project__copy">
+        <h3>Knife holder</h3>
+        <p>This was a knife block I designed and built in a woodworking class taken at the Parsons school of design evening course in Los Angeles. It is walnut and features space for about 18 knives of different sizes. The design allows the end blade to be seen, good if you have a damast steel blade.</p>
+        <p>I was intrigued by slot models and slot wooden dinosaur kits and wanted a simple shape to hold many knives. The cross view into the block has a nice play of all the knife curves.</p>
+        <p>The knife block was sold on Etsy and got good reviews.</p>
+      </div>
+    </article>
+
+    <article class="project" id="qode-app"
+      data-title="QODE APP" data-desc="Designed small app for Belkin hardware">
+      <div class="project__media"><img src="images/projects/qode-app.jpg" width="2880" height="1780" alt="QODE app on an iPad in a Belkin keyboard case" loading="lazy"></div>
+      <div class="project__copy">
+        <h3>QODE APP</h3>
+        <p>This was an app for the Qode Belkin keyboard. The app allowed for some customization and was mainly there to connect the users to Belkin for updates and marketing purposes.</p>
+      </div>
+    </article>
+  </section>
+</main>
 
 <footer>
-  <div class="container">
-    &copy; <span id="year"></span> Lino Wiehen · <a href="/kindle-living/" style="color:inherit;">Kindle Living</a>
-  </div>
+  &copy; <span id="year"></span> Lino Wiehen · <a href="/kindle-living/">Kindle Living</a>
 </footer>
 
 <script>
@@ -230,6 +201,30 @@
   };
   toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
   nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+  // Phone slideshow: crossfades through the screens and loops.
+  // Starts when the phone scrolls into view, pauses when it's off screen or the tab is hidden,
+  // and stays on the first screen for people who prefer reduced motion.
+  document.querySelectorAll('.slideshow').forEach((show) => {
+    const slides = [...show.querySelectorAll('img')];
+    const interval = Number(show.dataset.interval) || 1800;
+    const load = (img) => { if (img && img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; } };
+    let i = 0, timer = null, visible = false;
+    const step = () => {
+      load(slides[(i + 2) % slides.length]);           // keep the next screens loading ahead
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    };
+    const start = () => { if (!timer) timer = setInterval(step, interval); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) { load(slides[1]); load(slides[2]); start(); } else stop();
+    }, { threshold: 0.2 }).observe(show);
+    document.addEventListener('visibilitychange', () => (document.hidden || !visible) ? stop() : start());
+  });
 </script>
 <script type="module" src="js/projects.js"></script>
 
